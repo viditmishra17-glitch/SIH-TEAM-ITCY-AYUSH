@@ -1,0 +1,29 @@
+# Local development and test dependencies.
+#
+# Deliberately does NOT install the Postgres driver: local dev, the test suite
+# and the offline demo all run on SQLite. That keeps a fresh `pip install` off
+# the one dependency most likely to lack a wheel for a brand-new Python.
+#
+# Deploying to Supabase/Render? Those use requirements.txt, which does include
+# psycopg. To exercise Postgres locally, add it explicitly:
+#     pip install "psycopg[binary]==3.3.5"
+#
+# Verified on CPython 3.11, 3.12, 3.13 and 3.14 (Linux and Windows).
+
+fastapi==0.141.1
+uvicorn[standard]==0.52.4
+pydantic==2.13.5
+python-multipart==0.0.32
+SQLAlchemy==2.0.52
+Pillow==12.3.0
+reportlab==5.0.1
+python-dotenv==1.2.3
+
+# Testing
+pytest==9.1.1
+httpx==0.28.1
+
+# Optional: real OCR for images that have no committed fixture. The system
+# works without it — uploads simply route to review instead of crashing.
+# Needs the Tesseract binary as well; see README.md.
+# pytesseract==0.3.13

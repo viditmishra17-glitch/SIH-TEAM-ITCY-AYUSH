@@ -1,0 +1,98 @@
+{
+  "engine": "fixture",
+  "case_id": "TV-0002",
+  "image_file": "TV-0002-himveda-oil.png",
+  "coordinate_space": "original",
+  "lines": [
+    {
+      "text": "HIMVEDA COLD PRESSED MUSTARD OIL",
+      "bbox": [
+        56.0,
+        74.0,
+        665.0,
+        22.0
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "Kachi Ghani | Filtered",
+      "bbox": [
+        56.0,
+        110.0,
+        213.0,
+        20.0
+      ],
+      "confidence": 0.94
+    },
+    {
+      "text": "Net Volume: 1 L",
+      "bbox": [
+        56.0,
+        147.0,
+        233.0,
+        20.0
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": "MRP Rs. 249.00 (incl. of all taxes)",
+      "bbox": [
+        56.0,
+        183.0,
+        514.0,
+        24.0
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "MFG: JAN 2026    Best Before: JAN 2028",
+      "bbox": [
+        56.0,
+        222.0,
+        414.0,
+        20.0
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "Manufactured by: Himveda Naturals Pvt. Ltd.",
+      "bbox": [
+        56.0,
+        258.0,
+        472.0,
+        20.0
+      ],
+      "confidence": 0.94
+    },
+    {
+      "text": "Khasra 221, Kotdwar, Uttarakhand 246149",
+      "bbox": [
+        56.0,
+        293.0,
+        385.0,
+        16.0
+      ],
+      "confidence": 0.9
+    },
+    {
+      "text": "Consumer Care: care@himveda.example | 1800-419-8800",
+      "bbox": [
+        56.0,
+        326.0,
+        555.0,
+        19.0
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "EAN: 8907654321098",
+      "bbox": [
+        56.0,
+        361.0,
+        209.0,
+        14.0
+      ],
+      "confidence": 0.95
+    }
+  ]
+}

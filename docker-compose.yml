@@ -1,0 +1,36 @@
+# Local stack that mirrors production: Postgres behind the API.
+# Not required for the demo — the demo runs on SQLite with no Docker.
+# Run from the repository root:  docker compose up --build
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: triverify
+      POSTGRES_PASSWORD: triverify
+      POSTGRES_DB: triverify
+    ports:
+      - "5432:5432"
+    volumes:
+      - triverify_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U triverify"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  api:
+    build: ./backend
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://triverify:triverify@db:5432/triverify
+      TRIVERIFY_CORS_ORIGINS: "*"
+      TRIVERIFY_LIVE_SOURCES: "0"
+      PORT: "8000"
+    ports:
+      - "8000:8000"
+    command: sh -c "python -m app.seed && uvicorn app.main:app --host 0.0.0.0 --port 8000"
+
+volumes:
+  triverify_pgdata:

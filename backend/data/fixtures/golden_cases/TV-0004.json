@@ -1,0 +1,195 @@
+{
+  "case_id": "TV-0004",
+  "title": "Insufficient evidence — unreadable MRP and no registered record",
+  "expected_classification": "MANUAL_REVIEW",
+  "expected_notes": "The MRP line is below the confidence threshold and no official declaration exists for this identifier. The engine must refuse to guess. Note the absent \"official\" block — that is deliberate.",
+  "product": {
+    "product_id": "P-0004",
+    "name": "Verdant Valley Organic Forest Honey",
+    "brand": "Verdant Valley",
+    "category": "Honey and natural sweeteners",
+    "identifier": "8909988776655"
+  },
+  "image": {
+    "file": "TV-0004-verdant-honey.png",
+    "theme": "olive",
+    "title": "PACKAGED COMMODITY LABEL"
+  },
+  "label_lines": [
+    {
+      "text": "VERDANT VALLEY ORGANIC FOREST HONEY",
+      "size": 27,
+      "bold": true,
+      "confidence": 0.94
+    },
+    {
+      "text": "Raw | Unpasteurised",
+      "size": 20,
+      "confidence": 0.92
+    },
+    {
+      "text": "Net Wt. 500 g",
+      "size": 26,
+      "bold": true,
+      "confidence": 0.93
+    },
+    {
+      "text": "MRP Rs. 4Z9.00 (incl. of all taxes)",
+      "size": 25,
+      "bold": true,
+      "confidence": 0.41,
+      "degraded": true
+    },
+    {
+      "text": "MFG: MAR 2026    Best Before: MAR 2028",
+      "size": 21,
+      "confidence": 0.9
+    },
+    {
+      "text": "Packed by: Verdant Valley Farms LLP",
+      "size": 21,
+      "confidence": 0.92
+    },
+    {
+      "text": "Village Sirmaur, Himachal Pradesh 173001",
+      "size": 18,
+      "confidence": 0.88
+    },
+    {
+      "text": "Consumer Care: hello@verdantvalley.example | 1800-808-9090",
+      "size": 19,
+      "confidence": 0.9
+    },
+    {
+      "text": "EAN: 8909988776655",
+      "size": 19,
+      "confidence": 0.93
+    }
+  ],
+  "listing": {
+    "source": "DemoMart",
+    "url_or_id": "https://demomart.example/p/verdant-valley-forest-honey-500g",
+    "captured_at": "2026-09-09T10:10:00+00:00",
+    "fields": {
+      "product_name": "Verdant Valley Organic Forest Honey 500 g",
+      "brand": "Verdant Valley",
+      "mrp": "₹429",
+      "net_quantity": "500 g",
+      "packer_name": "Verdant Valley Farms LLP",
+      "consumer_care": "hello@verdantvalley.example, 1800-808-9090",
+      "identifier": "8909988776655"
+    },
+    "raw": {
+      "listing_id": "DM-33017",
+      "title": "Verdant Valley Organic Forest Honey 500 g",
+      "brand": "Verdant Valley",
+      "price": {
+        "mrp": 429,
+        "selling_price": 399,
+        "currency": "INR"
+      },
+      "pack_size": "500 g",
+      "seller": {
+        "name": "Hill Harvest Organics",
+        "rating": 4.0
+      },
+      "declarations": {
+        "packer": "Verdant Valley Farms LLP",
+        "customer_care": "hello@verdantvalley.example, 1800-808-9090",
+        "ean": "8909988776655"
+      }
+    }
+  },
+  "ocr_lines": [
+    {
+      "text": "VERDANT VALLEY ORGANIC FOREST HONEY",
+      "bbox": [
+        56.0,
+        74.0,
+        659.0,
+        20.0
+      ],
+      "confidence": 0.94
+    },
+    {
+      "text": "Raw | Unpasteurised",
+      "bbox": [
+        56.0,
+        108.0,
+        206.0,
+        20.0
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "Net Wt. 500 g",
+      "bbox": [
+        56.0,
+        146.0,
+        203.0,
+        24.0
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "MRP Rs. 4Z9.00 (incl. of all taxes)",
+      "bbox": [
+        56.0,
+        185.0,
+        476.0,
+        22.0
+      ],
+      "confidence": 0.41
+    },
+    {
+      "text": "MFG: MAR 2026    Best Before: MAR 2028",
+      "bbox": [
+        56.0,
+        222.0,
+        437.0,
+        16.0
+      ],
+      "confidence": 0.9
+    },
+    {
+      "text": "Packed by: Verdant Valley Farms LLP",
+      "bbox": [
+        56.0,
+        254.0,
+        381.0,
+        20.0
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "Village Sirmaur, Himachal Pradesh 173001",
+      "bbox": [
+        56.0,
+        289.0,
+        385.0,
+        18.0
+      ],
+      "confidence": 0.88
+    },
+    {
+      "text": "Consumer Care: hello@verdantvalley.example | 1800-808-9090",
+      "bbox": [
+        56.0,
+        324.0,
+        605.0,
+        19.0
+      ],
+      "confidence": 0.9
+    },
+    {
+      "text": "EAN: 8909988776655",
+      "bbox": [
+        56.0,
+        359.0,
+        209.0,
+        14.0
+      ],
+      "confidence": 0.93
+    }
+  ]
+}

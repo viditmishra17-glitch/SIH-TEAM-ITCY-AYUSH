@@ -1,0 +1,29 @@
+{
+  "source": "e-Maap registry (demo snapshot)",
+  "url_or_id": "EMAAP/LM/2025/0088213",
+  "captured_at": "2026-08-28T11:05:00+00:00",
+  "fields": {
+    "product_name": "Chakki Atta (Whole Wheat Flour)",
+    "brand": "Sunrise",
+    "mrp": "99.00",
+    "net_quantity": "1000 g",
+    "manufacturer_name": "SUNRISE FOODS PVT LTD",
+    "identifier": "8901234567890"
+  },
+  "raw": {
+    "registration_no": "EMAAP/LM/2025/0088213",
+    "registered_entity": "SUNRISE FOODS PVT LTD",
+    "entity_type": "MANUFACTURER",
+    "commodity": "Chakki Atta (Whole Wheat Flour)",
+    "declared_net_quantity": {
+      "value": 1000,
+      "unit": "g"
+    },
+    "declared_retail_sale_price": {
+      "amount": 99.0,
+      "currency": "INR"
+    },
+    "ean": "8901234567890",
+    "status": "ACTIVE"
+  }
+}

@@ -1,0 +1,1418 @@
+{
+  "case_id": "TV-0002",
+  "status": "VERIFIED",
+  "classification": "SELLER_FRAUD",
+  "overall_confidence": 0.98,
+  "headline": "The physical label and the official record agree, but the seller's online listing differs on Maximum Retail Price. The discrepancy is attributable to the online claim.",
+  "created_at": "2026-09-13T14:22:19.034128",
+  "verified_at": "2026-09-13T14:22:19.043627",
+  "ruleset_version": "triverify-rules-v1",
+  "is_golden": true,
+  "product": {
+    "product_id": "P-0002",
+    "name": "Himveda Cold Pressed Mustard Oil",
+    "brand": "Himveda",
+    "category": "Edible oils",
+    "identifier": "8907654321098"
+  },
+  "sources": {
+    "PHOTO": {
+      "available": true,
+      "source": "uploaded product photograph",
+      "reference": null,
+      "captured_at": "2026-09-13T14:22:19.034128",
+      "is_live": false,
+      "note": null
+    },
+    "LISTING": {
+      "available": true,
+      "source": "DemoMart",
+      "reference": "https://demomart.example/p/himveda-mustard-oil-1l",
+      "captured_at": "2026-09-05T16:42:00",
+      "is_live": false,
+      "note": null
+    },
+    "OFFICIAL": {
+      "available": true,
+      "source": "e-Maap registry (demo snapshot)",
+      "reference": "EMAAP/LM/2025/0091744",
+      "captured_at": "2026-08-30T08:15:00",
+      "is_live": false,
+      "note": null
+    }
+  },
+  "images": [
+    {
+      "image_id": "IMG-0002-O",
+      "kind": "ORIGINAL",
+      "width": 940,
+      "height": 431,
+      "url": "/cases/TV-0002/images/IMG-0002-O",
+      "quality_score": 0.867
+    },
+    {
+      "image_id": "IMG-0002-P",
+      "kind": "PREPROCESSED",
+      "width": 940,
+      "height": 431,
+      "url": "/cases/TV-0002/images/IMG-0002-P",
+      "quality_score": 0.867
+    }
+  ],
+  "fields": {
+    "mrp": {
+      "field_name": "mrp",
+      "label": "Maximum Retail Price",
+      "photo": {
+        "available": true,
+        "raw": "Rs. 249.00 (incl. of all taxes)",
+        "norm": {
+          "currency": "INR",
+          "amount": 249.0
+        },
+        "display": "Rs. 249.00",
+        "confidence": 0.96,
+        "evidence_id": "EV-0002-01",
+        "bbox": [
+          56.0,
+          183.0,
+          514.0,
+          24.0
+        ]
+      },
+      "listing": {
+        "available": true,
+        "raw": "₹199",
+        "norm": {
+          "currency": "INR",
+          "amount": 199.0
+        },
+        "display": "Rs. 199.00",
+        "confidence": 1.0,
+        "evidence_id": "EV-0002-11",
+        "bbox": null
+      },
+      "official": {
+        "available": true,
+        "raw": "249.00",
+        "norm": {
+          "currency": "INR",
+          "amount": 249.0
+        },
+        "display": "Rs. 249.00",
+        "confidence": 1.0,
+        "evidence_id": "EV-0002-18",
+        "bbox": null
+      },
+      "status": "MISMATCH",
+      "note": "The physical label and the official record agree; only the seller's listing differs. The inconsistency sits on the online claim.",
+      "is_material": true
+    },
+    "net_quantity": {
+      "field_name": "net_quantity",
+      "label": "Net Quantity",
+      "photo": {
+        "available": true,
+        "raw": "1 L",
+        "norm": {
+          "value": 1000.0,
+          "unit": "ml",
+          "dimension": "volume",
+          "display_value": 1.0,
+          "display_unit": "l",
+          "pack_count": 1
+        },
+        "display": "1000 ml",
+        "confidence": 0.95,
+        "evidence_id": "EV-0002-02",
+        "bbox": [
+          56.0,
+          147.0,
+          233.0,
+          20.0
+        ]
+      },
+      "listing": {
+        "available": true,
+        "raw": "1 L",
+        "norm": {
+          "value": 1000.0,
+          "unit": "ml",
+          "dimension": "volume",
+          "display_value": 1.0,
+          "display_unit": "l",
+          "pack_count": 1
+        },
+        "display": "1000 ml",
+        "confidence": 1.0,
+        "evidence_id": "EV-0002-12",
+        "bbox": null
+      },
+      "official": {
+        "available": true,
+        "raw": "1000 ml",
+        "norm": {
+          "value": 1000.0,
+          "unit": "ml",
+          "dimension": "volume",
+          "display_value": 1000.0,
+          "display_unit": "ml",
+          "pack_count": 1
+        },
+        "display": "1000 ml",
+        "confidence": 1.0,
+        "evidence_id": "EV-0002-19",
+        "bbox": null
+      },
+      "status": "MATCH",
+      "note": null,
+      "is_material": true
+    },
+    "manufacturer_name": {
+      "field_name": "manufacturer_name",
+      "label": "Manufacturer",
+      "photo": {
+        "available": true,
+        "raw": "Himveda Naturals Pvt. Ltd",
+        "norm": {
+          "canonical": "himveda naturals",
+          "tokens": [
+            "himveda",
+            "naturals"
+          ],
+          "display": "Himveda Naturals Pvt. Ltd"
+        },
+        "display": "Himveda Naturals Pvt. Ltd",
+        "confidence": 0.94,
+        "evidence_id": "EV-0002-05",
+        "bbox": [
+          56.0,
+          258.0,
+          472.0,
+          20.0
+        ]
+      },
+      "listing": {
+        "available": true,
+        "raw": "Himveda Naturals Private Limited",
+        "norm": {
+          "canonical": "himveda naturals",
+          "tokens": [
+            "himveda",
+            "naturals"
+          ],
+          "display": "Himveda Naturals Private Limited"
+        },
+        "display": "Himveda Naturals Private Limited",
+        "confidence": 1.0,
+        "evidence_id": "EV-0002-13",
+        "bbox": null
+      },
+      "official": {
+        "available": true,
+        "raw": "HIMVEDA NATURALS PVT LTD",
+        "norm": {
+          "canonical": "himveda naturals",
+          "tokens": [
+            "himveda",
+            "naturals"
+          ],
+          "display": "HIMVEDA NATURALS PVT LTD"
+        },
+        "display": "HIMVEDA NATURALS PVT LTD",
+        "confidence": 1.0,
+        "evidence_id": "EV-0002-20",
+        "bbox": null
+      },
+      "status": "MATCH",
+      "note": null,
+      "is_material": true
+    },
+    "product_name": {
+      "field_name": "product_name",
+      "label": "Product Name",
+      "photo": {
+        "available": true,
+        "raw": "HIMVEDA COLD PRESSED MUSTARD OIL",
+        "norm": {
+          "canonical": "himveda cold pressed mustard oil",
+          "tokens": [
+            "himveda",
+            "cold",
+            "pressed",
+            "mustard",
+            "oil"
+          ],
+          "display": "HIMVEDA COLD PRESSED MUSTARD OIL"
+        },
+        "display": "HIMVEDA COLD PRESSED MUSTARD OIL",
+        "confidence": 0.864,
+        "evidence_id": "EV-0002-07",
+        "bbox": [
+          56.0,
+          74.0,
+          665.0,
+          22.0
+        ]
+      },
+      "listing": {
+        "available": true,
+        "raw": "Himveda Cold Pressed Mustard Oil 1 L",
+        "norm": {
+          "canonical": "himveda cold pressed mustard oil 1 l",
+          "tokens": [
+            "himveda",
+            "cold",
+            "pressed",
+            "mustard",
+            "oil",
+            "1",
+            "l"
+          ],
+          "display": "Himveda Cold Pressed Mustard Oil 1 L"
+        },
+        "display": "Himveda Cold Pressed Mustard Oil 1 L",
+        "confidence": 1.0,
+        "evidence_id": "EV-0002-09",
+        "bbox": null
+      },
+      "official": {
+        "available": true,
+        "raw": "Mustard Oil (Kachi Ghani)",
+        "norm": {
+          "canonical": "mustard oil kachi ghani",
+          "tokens": [
+            "mustard",
+            "oil",
+            "kachi",
+            "ghani"
+          ],
+          "display": "Mustard Oil (Kachi Ghani)"
+        },
+        "display": "Mustard Oil (Kachi Ghani)",
+        "confidence": 1.0,
+        "evidence_id": "EV-0002-16",
+        "bbox": null
+      },
+      "status": "MATCH",
+      "note": null,
+      "is_material": false
+    },
+    "brand": {
+      "field_name": "brand",
+      "label": "Brand",
+      "photo": {
+        "available": false,
+        "raw": null,
+        "norm": null,
+        "display": null,
+        "confidence": null,
+        "evidence_id": null,
+        "bbox": null
+      },
+      "listing": {
+        "available": true,
+        "raw": "Himveda",
+        "norm": {
+          "canonical": "himveda",
+          "tokens": [
+            "himveda"
+          ],
+          "display": "Himveda"
+        },
+        "display": "Himveda",
+        "confidence": 1.0,
+        "evidence_id": "EV-0002-10",
+        "bbox": null
+      },
+      "official": {
+        "available": true,
+        "raw": "Himveda",
+        "norm": {
+          "canonical": "himveda",
+          "tokens": [
+            "himveda"
+          ],
+          "display": "Himveda"
+        },
+        "display": "Himveda",
+        "confidence": 1.0,
+        "evidence_id": "EV-0002-17",
+        "bbox": null
+      },
+      "status": "MATCH",
+      "note": null,
+      "is_material": false
+    },
+    "identifier": {
+      "field_name": "identifier",
+      "label": "Product Identifier",
+      "photo": {
+        "available": true,
+        "raw": "8907654321098",
+        "norm": {
+          "canonical": "8907654321098",
+          "display": "8907654321098"
+        },
+        "display": "8907654321098",
+        "confidence": 0.95,
+        "evidence_id": "EV-0002-08",
+        "bbox": [
+          56.0,
+          361.0,
+          209.0,
+          14.0
+        ]
+      },
+      "listing": {
+        "available": true,
+        "raw": "8907654321098",
+        "norm": {
+          "canonical": "8907654321098",
+          "display": "8907654321098"
+        },
+        "display": "8907654321098",
+        "confidence": 1.0,
+        "evidence_id": "EV-0002-15",
+        "bbox": null
+      },
+      "official": {
+        "available": true,
+        "raw": "8907654321098",
+        "norm": {
+          "canonical": "8907654321098",
+          "display": "8907654321098"
+        },
+        "display": "8907654321098",
+        "confidence": 1.0,
+        "evidence_id": "EV-0002-21",
+        "bbox": null
+      },
+      "status": "MATCH",
+      "note": null,
+      "is_material": true
+    },
+    "manufacturing_date": {
+      "field_name": "manufacturing_date",
+      "label": "Date of Manufacture",
+      "photo": {
+        "available": true,
+        "raw": "JAN 2026",
+        "norm": {
+          "iso": "2026-01-01",
+          "precision": "month"
+        },
+        "display": "JAN 2026",
+        "confidence": 0.93,
+        "evidence_id": "EV-0002-03",
+        "bbox": [
+          56.0,
+          222.0,
+          414.0,
+          20.0
+        ]
+      },
+      "listing": {
+        "available": false,
+        "raw": null,
+        "norm": null,
+        "display": null,
+        "confidence": null,
+        "evidence_id": null,
+        "bbox": null
+      },
+      "official": {
+        "available": false,
+        "raw": null,
+        "norm": null,
+        "display": null,
+        "confidence": null,
+        "evidence_id": null,
+        "bbox": null
+      },
+      "status": "NOT_APPLICABLE",
+      "note": "No cross-source rule is configured for this field; values are shown for context only.",
+      "is_material": false
+    },
+    "expiry_date": {
+      "field_name": "expiry_date",
+      "label": "Best Before / Expiry",
+      "photo": {
+        "available": true,
+        "raw": "JAN 2028",
+        "norm": {
+          "iso": "2028-01-01",
+          "precision": "month"
+        },
+        "display": "JAN 2028",
+        "confidence": 0.93,
+        "evidence_id": "EV-0002-04",
+        "bbox": [
+          56.0,
+          222.0,
+          414.0,
+          20.0
+        ]
+      },
+      "listing": {
+        "available": false,
+        "raw": null,
+        "norm": null,
+        "display": null,
+        "confidence": null,
+        "evidence_id": null,
+        "bbox": null
+      },
+      "official": {
+        "available": false,
+        "raw": null,
+        "norm": null,
+        "display": null,
+        "confidence": null,
+        "evidence_id": null,
+        "bbox": null
+      },
+      "status": "NOT_APPLICABLE",
+      "note": "No cross-source rule is configured for this field; values are shown for context only.",
+      "is_material": false
+    },
+    "consumer_care": {
+      "field_name": "consumer_care",
+      "label": "Consumer Care Details",
+      "photo": {
+        "available": true,
+        "raw": "care@himveda.example | 1800-419-8800",
+        "norm": {
+          "canonical": "carehimvedaexample18004198800",
+          "display": "care@himveda.example | 1800-419-8800",
+          "digits": "18004198800"
+        },
+        "display": "care@himveda.example | 1800-419-8800",
+        "confidence": 0.92,
+        "evidence_id": "EV-0002-06",
+        "bbox": [
+          56.0,
+          326.0,
+          555.0,
+          19.0
+        ]
+      },
+      "listing": {
+        "available": true,
+        "raw": "care@himveda.example, 1800-419-8800",
+        "norm": {
+          "canonical": "carehimvedaexample18004198800",
+          "display": "care@himveda.example, 1800-419-8800",
+          "digits": "18004198800"
+        },
+        "display": "care@himveda.example, 1800-419-8800",
+        "confidence": 1.0,
+        "evidence_id": "EV-0002-14",
+        "bbox": null
+      },
+      "official": {
+        "available": false,
+        "raw": null,
+        "norm": null,
+        "display": null,
+        "confidence": null,
+        "evidence_id": null,
+        "bbox": null
+      },
+      "status": "NOT_APPLICABLE",
+      "note": "No cross-source rule is configured for this field; values are shown for context only.",
+      "is_material": false
+    }
+  },
+  "field_order": [
+    "mrp",
+    "net_quantity",
+    "manufacturer_name",
+    "product_name",
+    "brand",
+    "identifier",
+    "manufacturing_date",
+    "expiry_date",
+    "consumer_care"
+  ],
+  "findings": [
+    {
+      "rule_id": "MRP-001",
+      "field_name": "mrp",
+      "severity": "HIGH",
+      "status": "FAIL",
+      "explanation": "Maximum Retail Price on the physical label (Rs. 249.00) does not match Maximum Retail Price on the seller's online listing (Rs. 199.00).",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-0002-01",
+        "EV-0002-11"
+      ],
+      "legal_reference": null
+    },
+    {
+      "rule_id": "MRP-003",
+      "field_name": "mrp",
+      "severity": "HIGH",
+      "status": "FAIL",
+      "explanation": "Maximum Retail Price on the seller's online listing (Rs. 199.00) does not match Maximum Retail Price on the registered official declaration (Rs. 249.00).",
+      "confidence": 1.0,
+      "evidence_ids": [
+        "EV-0002-11",
+        "EV-0002-18"
+      ],
+      "legal_reference": null
+    },
+    {
+      "rule_id": "DECL-001",
+      "field_name": "mrp",
+      "severity": "HIGH",
+      "status": "PASS",
+      "explanation": "Maximum Retail Price is declared on the physical label as \"Rs. 249.00\".",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-0002-01"
+      ],
+      "legal_reference": null
+    },
+    {
+      "rule_id": "DECL-002",
+      "field_name": "net_quantity",
+      "severity": "HIGH",
+      "status": "PASS",
+      "explanation": "Net Quantity is declared on the physical label as \"1000 ml\".",
+      "confidence": 0.95,
+      "evidence_ids": [
+        "EV-0002-02"
+      ],
+      "legal_reference": null
+    },
+    {
+      "rule_id": "DECL-003",
+      "field_name": "manufacturer_name",
+      "severity": "HIGH",
+      "status": "PASS",
+      "explanation": "Manufacturer is declared on the physical label as \"Himveda Naturals Pvt. Ltd\".",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-0002-05"
+      ],
+      "legal_reference": null
+    },
+    {
+      "rule_id": "MFR-001",
+      "field_name": "manufacturer_name",
+      "severity": "HIGH",
+      "status": "PASS",
+      "explanation": "Manufacturer agrees between the physical label and the seller's online listing (\"Himveda Naturals Pvt. Ltd\").",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-0002-05",
+        "EV-0002-13"
+      ],
+      "legal_reference": null
+    },
+    {
+      "rule_id": "MFR-002",
+      "field_name": "manufacturer_name",
+      "severity": "HIGH",
+      "status": "PASS",
+      "explanation": "Manufacturer agrees between the physical label and the registered official declaration (\"Himveda Naturals Pvt. Ltd\").",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-0002-05",
+        "EV-0002-20"
+      ],
+      "legal_reference": null
+    },
+    {
+      "rule_id": "MFR-003",
+      "field_name": "manufacturer_name",
+      "severity": "HIGH",
+      "status": "PASS",
+      "explanation": "Manufacturer agrees between the seller's online listing and the registered official declaration (\"Himveda Naturals Private Limited\").",
+      "confidence": 1.0,
+      "evidence_ids": [
+        "EV-0002-13",
+        "EV-0002-20"
+      ],
+      "legal_reference": null
+    },
+    {
+      "rule_id": "MRP-002",
+      "field_name": "mrp",
+      "severity": "HIGH",
+      "status": "PASS",
+      "explanation": "Maximum Retail Price agrees between the physical label and the registered official declaration (\"Rs. 249.00\").",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-0002-01",
+        "EV-0002-18"
+      ],
+      "legal_reference": null
+    },
+    {
+      "rule_id": "QTY-001",
+      "field_name": "net_quantity",
+      "severity": "HIGH",
+      "status": "PASS",
+      "explanation": "Net Quantity agrees between the physical label and the seller's online listing (\"1000 ml\").",
+      "confidence": 0.95,
+      "evidence_ids": [
+        "EV-0002-02",
+        "EV-0002-12"
+      ],
+      "legal_reference": null
+    },
+    {
+      "rule_id": "QTY-002",
+      "field_name": "net_quantity",
+      "severity": "HIGH",
+      "status": "PASS",
+      "explanation": "Net Quantity agrees between the physical label and the registered official declaration (\"1000 ml\").",
+      "confidence": 0.95,
+      "evidence_ids": [
+        "EV-0002-02",
+        "EV-0002-19"
+      ],
+      "legal_reference": null
+    },
+    {
+      "rule_id": "QTY-003",
+      "field_name": "net_quantity",
+      "severity": "HIGH",
+      "status": "PASS",
+      "explanation": "Net Quantity agrees between the seller's online listing and the registered official declaration (\"1000 ml\").",
+      "confidence": 1.0,
+      "evidence_ids": [
+        "EV-0002-12",
+        "EV-0002-19"
+      ],
+      "legal_reference": null
+    },
+    {
+      "rule_id": "DATE-001",
+      "field_name": "expiry_date",
+      "severity": "MEDIUM",
+      "status": "PASS",
+      "explanation": "Expiry (JAN 2028) is later than the production date (JAN 2026) on the physical label.",
+      "confidence": 0.93,
+      "evidence_ids": [
+        "EV-0002-04",
+        "EV-0002-03"
+      ],
+      "legal_reference": null
+    },
+    {
+      "rule_id": "DECL-004",
+      "field_name": "consumer_care",
+      "severity": "MEDIUM",
+      "status": "PASS",
+      "explanation": "Consumer Care Details is declared on the physical label as \"care@himveda.example | 1800-419-8800\".",
+      "confidence": 0.92,
+      "evidence_ids": [
+        "EV-0002-06"
+      ],
+      "legal_reference": null
+    },
+    {
+      "rule_id": "DECL-005",
+      "field_name": "manufacturing_date",
+      "severity": "MEDIUM",
+      "status": "PASS",
+      "explanation": "Date of Manufacture is declared on the physical label as \"JAN 2026\".",
+      "confidence": 0.93,
+      "evidence_ids": [
+        "EV-0002-03"
+      ],
+      "legal_reference": null
+    },
+    {
+      "rule_id": "IDN-001",
+      "field_name": "identifier",
+      "severity": "MEDIUM",
+      "status": "PASS",
+      "explanation": "Product Identifier agrees between the physical label and the seller's online listing (\"8907654321098\").",
+      "confidence": 0.95,
+      "evidence_ids": [
+        "EV-0002-08",
+        "EV-0002-15"
+      ],
+      "legal_reference": null
+    },
+    {
+      "rule_id": "IDN-002",
+      "field_name": "identifier",
+      "severity": "MEDIUM",
+      "status": "PASS",
+      "explanation": "Product Identifier agrees between the physical label and the registered official declaration (\"8907654321098\").",
+      "confidence": 0.95,
+      "evidence_ids": [
+        "EV-0002-08",
+        "EV-0002-21"
+      ],
+      "legal_reference": null
+    },
+    {
+      "rule_id": "IDN-003",
+      "field_name": "identifier",
+      "severity": "MEDIUM",
+      "status": "PASS",
+      "explanation": "Product Identifier agrees between the seller's online listing and the registered official declaration (\"8907654321098\").",
+      "confidence": 1.0,
+      "evidence_ids": [
+        "EV-0002-15",
+        "EV-0002-21"
+      ],
+      "legal_reference": null
+    },
+    {
+      "rule_id": "BRD-003",
+      "field_name": "brand",
+      "severity": "LOW",
+      "status": "PASS",
+      "explanation": "Brand agrees between the seller's online listing and the registered official declaration (\"Himveda\").",
+      "confidence": 1.0,
+      "evidence_ids": [
+        "EV-0002-10",
+        "EV-0002-17"
+      ],
+      "legal_reference": null
+    },
+    {
+      "rule_id": "DECL-006",
+      "field_name": "product_name",
+      "severity": "LOW",
+      "status": "PASS",
+      "explanation": "Product Name is declared on the physical label as \"HIMVEDA COLD PRESSED MUSTARD OIL\".",
+      "confidence": 0.864,
+      "evidence_ids": [
+        "EV-0002-07"
+      ],
+      "legal_reference": null
+    },
+    {
+      "rule_id": "PRD-001",
+      "field_name": "product_name",
+      "severity": "LOW",
+      "status": "PASS",
+      "explanation": "Product Name agrees between the physical label and the seller's online listing (\"HIMVEDA COLD PRESSED MUSTARD OIL\").",
+      "confidence": 0.864,
+      "evidence_ids": [
+        "EV-0002-07",
+        "EV-0002-09"
+      ],
+      "legal_reference": null
+    },
+    {
+      "rule_id": "IMP-001",
+      "field_name": "importer_name",
+      "severity": "MEDIUM",
+      "status": "NOT_APPLICABLE",
+      "explanation": "Not applicable: Importer is not declared on the physical label or the seller's online listing.",
+      "confidence": 0.0,
+      "evidence_ids": [],
+      "legal_reference": null
+    },
+    {
+      "rule_id": "IMP-002",
+      "field_name": "importer_name",
+      "severity": "MEDIUM",
+      "status": "NOT_APPLICABLE",
+      "explanation": "Not applicable: Importer is not declared on the physical label or the registered official declaration.",
+      "confidence": 0.0,
+      "evidence_ids": [],
+      "legal_reference": null
+    },
+    {
+      "rule_id": "IMP-003",
+      "field_name": "importer_name",
+      "severity": "MEDIUM",
+      "status": "NOT_APPLICABLE",
+      "explanation": "Not applicable: Importer is not declared on the seller's online listing or the registered official declaration.",
+      "confidence": 0.0,
+      "evidence_ids": [],
+      "legal_reference": null
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "EV-0002-01",
+      "source_type": "PHOTO",
+      "field_name": "mrp",
+      "raw_value": "Rs. 249.00 (incl. of all taxes)",
+      "normalized_value": {
+        "currency": "INR",
+        "amount": 249.0
+      },
+      "display": "Rs. 249.00",
+      "confidence": 0.96,
+      "bbox": [
+        56.0,
+        183.0,
+        514.0,
+        24.0
+      ],
+      "has_crop": true,
+      "crop_url": "/cases/TV-0002/evidence/EV-0002-01/crop",
+      "excerpt": "Rs. 249.00 (incl. of all taxes)",
+      "source_ref": "TV-0002-himveda-oil.png",
+      "captured_at": "2026-09-13T14:22:19.034128",
+      "metadata": {
+        "engine": "fixture",
+        "obs_id": "OBS-0002-002"
+      }
+    },
+    {
+      "evidence_id": "EV-0002-02",
+      "source_type": "PHOTO",
+      "field_name": "net_quantity",
+      "raw_value": "1 L",
+      "normalized_value": {
+        "value": 1000.0,
+        "unit": "ml",
+        "dimension": "volume",
+        "display_value": 1.0,
+        "display_unit": "l",
+        "pack_count": 1
+      },
+      "display": "1000 ml",
+      "confidence": 0.95,
+      "bbox": [
+        56.0,
+        147.0,
+        233.0,
+        20.0
+      ],
+      "has_crop": true,
+      "crop_url": "/cases/TV-0002/evidence/EV-0002-02/crop",
+      "excerpt": "1 L",
+      "source_ref": "TV-0002-himveda-oil.png",
+      "captured_at": "2026-09-13T14:22:19.034128",
+      "metadata": {
+        "engine": "fixture",
+        "obs_id": "OBS-0002-001"
+      }
+    },
+    {
+      "evidence_id": "EV-0002-03",
+      "source_type": "PHOTO",
+      "field_name": "manufacturing_date",
+      "raw_value": "JAN 2026",
+      "normalized_value": {
+        "iso": "2026-01-01",
+        "precision": "month"
+      },
+      "display": "JAN 2026",
+      "confidence": 0.93,
+      "bbox": [
+        56.0,
+        222.0,
+        414.0,
+        20.0
+      ],
+      "has_crop": true,
+      "crop_url": "/cases/TV-0002/evidence/EV-0002-03/crop",
+      "excerpt": "JAN 2026",
+      "source_ref": "TV-0002-himveda-oil.png",
+      "captured_at": "2026-09-13T14:22:19.034128",
+      "metadata": {
+        "engine": "fixture",
+        "obs_id": "OBS-0002-003"
+      }
+    },
+    {
+      "evidence_id": "EV-0002-04",
+      "source_type": "PHOTO",
+      "field_name": "expiry_date",
+      "raw_value": "JAN 2028",
+      "normalized_value": {
+        "iso": "2028-01-01",
+        "precision": "month"
+      },
+      "display": "JAN 2028",
+      "confidence": 0.93,
+      "bbox": [
+        56.0,
+        222.0,
+        414.0,
+        20.0
+      ],
+      "has_crop": true,
+      "crop_url": "/cases/TV-0002/evidence/EV-0002-04/crop",
+      "excerpt": "JAN 2028",
+      "source_ref": "TV-0002-himveda-oil.png",
+      "captured_at": "2026-09-13T14:22:19.034128",
+      "metadata": {
+        "engine": "fixture",
+        "obs_id": "OBS-0002-004"
+      }
+    },
+    {
+      "evidence_id": "EV-0002-05",
+      "source_type": "PHOTO",
+      "field_name": "manufacturer_name",
+      "raw_value": "Himveda Naturals Pvt. Ltd",
+      "normalized_value": {
+        "canonical": "himveda naturals",
+        "tokens": [
+          "himveda",
+          "naturals"
+        ],
+        "display": "Himveda Naturals Pvt. Ltd"
+      },
+      "display": "Himveda Naturals Pvt. Ltd",
+      "confidence": 0.94,
+      "bbox": [
+        56.0,
+        258.0,
+        472.0,
+        20.0
+      ],
+      "has_crop": true,
+      "crop_url": "/cases/TV-0002/evidence/EV-0002-05/crop",
+      "excerpt": "Himveda Naturals Pvt. Ltd",
+      "source_ref": "TV-0002-himveda-oil.png",
+      "captured_at": "2026-09-13T14:22:19.034128",
+      "metadata": {
+        "engine": "fixture",
+        "obs_id": "OBS-0002-005"
+      }
+    },
+    {
+      "evidence_id": "EV-0002-06",
+      "source_type": "PHOTO",
+      "field_name": "consumer_care",
+      "raw_value": "care@himveda.example | 1800-419-8800",
+      "normalized_value": {
+        "canonical": "carehimvedaexample18004198800",
+        "display": "care@himveda.example | 1800-419-8800",
+        "digits": "18004198800"
+      },
+      "display": "care@himveda.example | 1800-419-8800",
+      "confidence": 0.92,
+      "bbox": [
+        56.0,
+        326.0,
+        555.0,
+        19.0
+      ],
+      "has_crop": true,
+      "crop_url": "/cases/TV-0002/evidence/EV-0002-06/crop",
+      "excerpt": "care@himveda.example | 1800-419-8800",
+      "source_ref": "TV-0002-himveda-oil.png",
+      "captured_at": "2026-09-13T14:22:19.034128",
+      "metadata": {
+        "engine": "fixture",
+        "obs_id": "OBS-0002-006"
+      }
+    },
+    {
+      "evidence_id": "EV-0002-07",
+      "source_type": "PHOTO",
+      "field_name": "product_name",
+      "raw_value": "HIMVEDA COLD PRESSED MUSTARD OIL",
+      "normalized_value": {
+        "canonical": "himveda cold pressed mustard oil",
+        "tokens": [
+          "himveda",
+          "cold",
+          "pressed",
+          "mustard",
+          "oil"
+        ],
+        "display": "HIMVEDA COLD PRESSED MUSTARD OIL"
+      },
+      "display": "HIMVEDA COLD PRESSED MUSTARD OIL",
+      "confidence": 0.864,
+      "bbox": [
+        56.0,
+        74.0,
+        665.0,
+        22.0
+      ],
+      "has_crop": true,
+      "crop_url": "/cases/TV-0002/evidence/EV-0002-07/crop",
+      "excerpt": "HIMVEDA COLD PRESSED MUSTARD OIL",
+      "source_ref": "TV-0002-himveda-oil.png",
+      "captured_at": "2026-09-13T14:22:19.034128",
+      "metadata": {
+        "engine": "fixture",
+        "obs_id": "OBS-0002-008"
+      }
+    },
+    {
+      "evidence_id": "EV-0002-08",
+      "source_type": "PHOTO",
+      "field_name": "identifier",
+      "raw_value": "8907654321098",
+      "normalized_value": {
+        "canonical": "8907654321098",
+        "display": "8907654321098"
+      },
+      "display": "8907654321098",
+      "confidence": 0.95,
+      "bbox": [
+        56.0,
+        361.0,
+        209.0,
+        14.0
+      ],
+      "has_crop": true,
+      "crop_url": "/cases/TV-0002/evidence/EV-0002-08/crop",
+      "excerpt": "8907654321098",
+      "source_ref": "TV-0002-himveda-oil.png",
+      "captured_at": "2026-09-13T14:22:19.034128",
+      "metadata": {
+        "engine": "fixture",
+        "obs_id": "OBS-0002-007"
+      }
+    },
+    {
+      "evidence_id": "EV-0002-09",
+      "source_type": "LISTING",
+      "field_name": "product_name",
+      "raw_value": "Himveda Cold Pressed Mustard Oil 1 L",
+      "normalized_value": {
+        "canonical": "himveda cold pressed mustard oil 1 l",
+        "tokens": [
+          "himveda",
+          "cold",
+          "pressed",
+          "mustard",
+          "oil",
+          "1",
+          "l"
+        ],
+        "display": "Himveda Cold Pressed Mustard Oil 1 L"
+      },
+      "display": "Himveda Cold Pressed Mustard Oil 1 L",
+      "confidence": 1.0,
+      "bbox": null,
+      "has_crop": false,
+      "crop_url": null,
+      "excerpt": "product_name: Himveda Cold Pressed Mustard Oil 1 L",
+      "source_ref": "https://demomart.example/p/himveda-mustard-oil-1l",
+      "captured_at": "2026-09-05T16:42:00",
+      "metadata": {
+        "snapshot_id": "LS-0002",
+        "source": "DemoMart",
+        "is_live": false
+      }
+    },
+    {
+      "evidence_id": "EV-0002-10",
+      "source_type": "LISTING",
+      "field_name": "brand",
+      "raw_value": "Himveda",
+      "normalized_value": {
+        "canonical": "himveda",
+        "tokens": [
+          "himveda"
+        ],
+        "display": "Himveda"
+      },
+      "display": "Himveda",
+      "confidence": 1.0,
+      "bbox": null,
+      "has_crop": false,
+      "crop_url": null,
+      "excerpt": "brand: Himveda",
+      "source_ref": "https://demomart.example/p/himveda-mustard-oil-1l",
+      "captured_at": "2026-09-05T16:42:00",
+      "metadata": {
+        "snapshot_id": "LS-0002",
+        "source": "DemoMart",
+        "is_live": false
+      }
+    },
+    {
+      "evidence_id": "EV-0002-11",
+      "source_type": "LISTING",
+      "field_name": "mrp",
+      "raw_value": "₹199",
+      "normalized_value": {
+        "currency": "INR",
+        "amount": 199.0
+      },
+      "display": "Rs. 199.00",
+      "confidence": 1.0,
+      "bbox": null,
+      "has_crop": false,
+      "crop_url": null,
+      "excerpt": "mrp: ₹199",
+      "source_ref": "https://demomart.example/p/himveda-mustard-oil-1l",
+      "captured_at": "2026-09-05T16:42:00",
+      "metadata": {
+        "snapshot_id": "LS-0002",
+        "source": "DemoMart",
+        "is_live": false
+      }
+    },
+    {
+      "evidence_id": "EV-0002-12",
+      "source_type": "LISTING",
+      "field_name": "net_quantity",
+      "raw_value": "1 L",
+      "normalized_value": {
+        "value": 1000.0,
+        "unit": "ml",
+        "dimension": "volume",
+        "display_value": 1.0,
+        "display_unit": "l",
+        "pack_count": 1
+      },
+      "display": "1000 ml",
+      "confidence": 1.0,
+      "bbox": null,
+      "has_crop": false,
+      "crop_url": null,
+      "excerpt": "net_quantity: 1 L",
+      "source_ref": "https://demomart.example/p/himveda-mustard-oil-1l",
+      "captured_at": "2026-09-05T16:42:00",
+      "metadata": {
+        "snapshot_id": "LS-0002",
+        "source": "DemoMart",
+        "is_live": false
+      }
+    },
+    {
+      "evidence_id": "EV-0002-13",
+      "source_type": "LISTING",
+      "field_name": "manufacturer_name",
+      "raw_value": "Himveda Naturals Private Limited",
+      "normalized_value": {
+        "canonical": "himveda naturals",
+        "tokens": [
+          "himveda",
+          "naturals"
+        ],
+        "display": "Himveda Naturals Private Limited"
+      },
+      "display": "Himveda Naturals Private Limited",
+      "confidence": 1.0,
+      "bbox": null,
+      "has_crop": false,
+      "crop_url": null,
+      "excerpt": "manufacturer_name: Himveda Naturals Private Limited",
+      "source_ref": "https://demomart.example/p/himveda-mustard-oil-1l",
+      "captured_at": "2026-09-05T16:42:00",
+      "metadata": {
+        "snapshot_id": "LS-0002",
+        "source": "DemoMart",
+        "is_live": false
+      }
+    },
+    {
+      "evidence_id": "EV-0002-14",
+      "source_type": "LISTING",
+      "field_name": "consumer_care",
+      "raw_value": "care@himveda.example, 1800-419-8800",
+      "normalized_value": {
+        "canonical": "carehimvedaexample18004198800",
+        "display": "care@himveda.example, 1800-419-8800",
+        "digits": "18004198800"
+      },
+      "display": "care@himveda.example, 1800-419-8800",
+      "confidence": 1.0,
+      "bbox": null,
+      "has_crop": false,
+      "crop_url": null,
+      "excerpt": "consumer_care: care@himveda.example, 1800-419-8800",
+      "source_ref": "https://demomart.example/p/himveda-mustard-oil-1l",
+      "captured_at": "2026-09-05T16:42:00",
+      "metadata": {
+        "snapshot_id": "LS-0002",
+        "source": "DemoMart",
+        "is_live": false
+      }
+    },
+    {
+      "evidence_id": "EV-0002-15",
+      "source_type": "LISTING",
+      "field_name": "identifier",
+      "raw_value": "8907654321098",
+      "normalized_value": {
+        "canonical": "8907654321098",
+        "display": "8907654321098"
+      },
+      "display": "8907654321098",
+      "confidence": 1.0,
+      "bbox": null,
+      "has_crop": false,
+      "crop_url": null,
+      "excerpt": "identifier: 8907654321098",
+      "source_ref": "https://demomart.example/p/himveda-mustard-oil-1l",
+      "captured_at": "2026-09-05T16:42:00",
+      "metadata": {
+        "snapshot_id": "LS-0002",
+        "source": "DemoMart",
+        "is_live": false
+      }
+    },
+    {
+      "evidence_id": "EV-0002-16",
+      "source_type": "OFFICIAL",
+      "field_name": "product_name",
+      "raw_value": "Mustard Oil (Kachi Ghani)",
+      "normalized_value": {
+        "canonical": "mustard oil kachi ghani",
+        "tokens": [
+          "mustard",
+          "oil",
+          "kachi",
+          "ghani"
+        ],
+        "display": "Mustard Oil (Kachi Ghani)"
+      },
+      "display": "Mustard Oil (Kachi Ghani)",
+      "confidence": 1.0,
+      "bbox": null,
+      "has_crop": false,
+      "crop_url": null,
+      "excerpt": "product_name: Mustard Oil (Kachi Ghani)",
+      "source_ref": "EMAAP/LM/2025/0091744",
+      "captured_at": "2026-08-30T08:15:00",
+      "metadata": {
+        "record_id": "OR-0002",
+        "source": "e-Maap registry (demo snapshot)",
+        "is_live": false
+      }
+    },
+    {
+      "evidence_id": "EV-0002-17",
+      "source_type": "OFFICIAL",
+      "field_name": "brand",
+      "raw_value": "Himveda",
+      "normalized_value": {
+        "canonical": "himveda",
+        "tokens": [
+          "himveda"
+        ],
+        "display": "Himveda"
+      },
+      "display": "Himveda",
+      "confidence": 1.0,
+      "bbox": null,
+      "has_crop": false,
+      "crop_url": null,
+      "excerpt": "brand: Himveda",
+      "source_ref": "EMAAP/LM/2025/0091744",
+      "captured_at": "2026-08-30T08:15:00",
+      "metadata": {
+        "record_id": "OR-0002",
+        "source": "e-Maap registry (demo snapshot)",
+        "is_live": false
+      }
+    },
+    {
+      "evidence_id": "EV-0002-18",
+      "source_type": "OFFICIAL",
+      "field_name": "mrp",
+      "raw_value": "249.00",
+      "normalized_value": {
+        "currency": "INR",
+        "amount": 249.0
+      },
+      "display": "Rs. 249.00",
+      "confidence": 1.0,
+      "bbox": null,
+      "has_crop": false,
+      "crop_url": null,
+      "excerpt": "mrp: 249.00",
+      "source_ref": "EMAAP/LM/2025/0091744",
+      "captured_at": "2026-08-30T08:15:00",
+      "metadata": {
+        "record_id": "OR-0002",
+        "source": "e-Maap registry (demo snapshot)",
+        "is_live": false
+      }
+    },
+    {
+      "evidence_id": "EV-0002-19",
+      "source_type": "OFFICIAL",
+      "field_name": "net_quantity",
+      "raw_value": "1000 ml",
+      "normalized_value": {
+        "value": 1000.0,
+        "unit": "ml",
+        "dimension": "volume",
+        "display_value": 1000.0,
+        "display_unit": "ml",
+        "pack_count": 1
+      },
+      "display": "1000 ml",
+      "confidence": 1.0,
+      "bbox": null,
+      "has_crop": false,
+      "crop_url": null,
+      "excerpt": "net_quantity: 1000 ml",
+      "source_ref": "EMAAP/LM/2025/0091744",
+      "captured_at": "2026-08-30T08:15:00",
+      "metadata": {
+        "record_id": "OR-0002",
+        "source": "e-Maap registry (demo snapshot)",
+        "is_live": false
+      }
+    },
+    {
+      "evidence_id": "EV-0002-20",
+      "source_type": "OFFICIAL",
+      "field_name": "manufacturer_name",
+      "raw_value": "HIMVEDA NATURALS PVT LTD",
+      "normalized_value": {
+        "canonical": "himveda naturals",
+        "tokens": [
+          "himveda",
+          "naturals"
+        ],
+        "display": "HIMVEDA NATURALS PVT LTD"
+      },
+      "display": "HIMVEDA NATURALS PVT LTD",
+      "confidence": 1.0,
+      "bbox": null,
+      "has_crop": false,
+      "crop_url": null,
+      "excerpt": "manufacturer_name: HIMVEDA NATURALS PVT LTD",
+      "source_ref": "EMAAP/LM/2025/0091744",
+      "captured_at": "2026-08-30T08:15:00",
+      "metadata": {
+        "record_id": "OR-0002",
+        "source": "e-Maap registry (demo snapshot)",
+        "is_live": false
+      }
+    },
+    {
+      "evidence_id": "EV-0002-21",
+      "source_type": "OFFICIAL",
+      "field_name": "identifier",
+      "raw_value": "8907654321098",
+      "normalized_value": {
+        "canonical": "8907654321098",
+        "display": "8907654321098"
+      },
+      "display": "8907654321098",
+      "confidence": 1.0,
+      "bbox": null,
+      "has_crop": false,
+      "crop_url": null,
+      "excerpt": "identifier: 8907654321098",
+      "source_ref": "EMAAP/LM/2025/0091744",
+      "captured_at": "2026-08-30T08:15:00",
+      "metadata": {
+        "record_id": "OR-0002",
+        "source": "e-Maap registry (demo snapshot)",
+        "is_live": false
+      }
+    }
+  ],
+  "summary": {
+    "passed": 19,
+    "failed": 2,
+    "review": 0,
+    "not_applicable": 3,
+    "high_severity_failures": 2,
+    "fields_compared": 6,
+    "fields_mismatched": 1
+  },
+  "disclaimer": "Engineering triage output. Evidence and configured rules are shown in full; a qualified officer remains responsible for any enforcement action."
+}

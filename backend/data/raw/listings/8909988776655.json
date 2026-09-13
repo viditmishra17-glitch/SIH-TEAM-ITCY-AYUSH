@@ -1,0 +1,34 @@
+{
+  "source": "DemoMart",
+  "url_or_id": "https://demomart.example/p/verdant-valley-forest-honey-500g",
+  "captured_at": "2026-09-09T10:10:00+00:00",
+  "fields": {
+    "product_name": "Verdant Valley Organic Forest Honey 500 g",
+    "brand": "Verdant Valley",
+    "mrp": "₹429",
+    "net_quantity": "500 g",
+    "packer_name": "Verdant Valley Farms LLP",
+    "consumer_care": "hello@verdantvalley.example, 1800-808-9090",
+    "identifier": "8909988776655"
+  },
+  "raw": {
+    "listing_id": "DM-33017",
+    "title": "Verdant Valley Organic Forest Honey 500 g",
+    "brand": "Verdant Valley",
+    "price": {
+      "mrp": 429,
+      "selling_price": 399,
+      "currency": "INR"
+    },
+    "pack_size": "500 g",
+    "seller": {
+      "name": "Hill Harvest Organics",
+      "rating": 4.0
+    },
+    "declarations": {
+      "packer": "Verdant Valley Farms LLP",
+      "customer_care": "hello@verdantvalley.example, 1800-808-9090",
+      "ean": "8909988776655"
+    }
+  }
+}

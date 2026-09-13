@@ -1,0 +1,32 @@
+# Render blueprint for the TriVerify API.
+# Create a new Blueprint instance from the repository and Render reads this.
+services:
+  - type: web
+    name: triverify-api
+    runtime: python
+    plan: free
+    region: singapore
+    # Only the backend is deployed here; the frontend goes to Vercel.
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    # Render injects $PORT; uvicorn must bind it or the deploy is marked unhealthy.
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      # Pinned deliberately. The dependency set in requirements.txt is verified
+      # on 3.11 through 3.14, so this can be raised safely if Render offers a
+      # newer runtime.
+      - key: PYTHON_VERSION
+        value: "3.11.9"
+      # Set in the Render dashboard — never commit the Supabase password.
+      # Use the connection POOLER URI (port 6543).
+      - key: DATABASE_URL
+        sync: false
+      # Your Vercel domain, comma-separated for multiple.
+      - key: TRIVERIFY_CORS_ORIGINS
+        sync: false
+      - key: TRIVERIFY_LIVE_SOURCES
+        value: "0"
+      - key: TRIVERIFY_RULESET_VERSION
+        value: triverify-rules-v1

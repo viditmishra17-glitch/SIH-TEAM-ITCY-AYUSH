@@ -1,0 +1,224 @@
+{
+  "case_id": "TV-0002",
+  "title": "Seller-side mismatch — listing understates the MRP",
+  "expected_classification": "SELLER_FRAUD",
+  "expected_notes": "Photo and official record agree at Rs. 249; only the listing says Rs. 199. The pattern isolates the online claim.",
+  "product": {
+    "product_id": "P-0002",
+    "name": "Himveda Cold Pressed Mustard Oil",
+    "brand": "Himveda",
+    "category": "Edible oils",
+    "identifier": "8907654321098"
+  },
+  "image": {
+    "file": "TV-0002-himveda-oil.png",
+    "theme": "amber",
+    "title": "PACKAGED COMMODITY LABEL"
+  },
+  "label_lines": [
+    {
+      "text": "HIMVEDA COLD PRESSED MUSTARD OIL",
+      "size": 30,
+      "bold": true,
+      "confidence": 0.96
+    },
+    {
+      "text": "Kachi Ghani | Filtered",
+      "size": 20,
+      "confidence": 0.94
+    },
+    {
+      "text": "Net Volume: 1 L",
+      "size": 26,
+      "bold": true,
+      "confidence": 0.95
+    },
+    {
+      "text": "MRP Rs. 249.00 (incl. of all taxes)",
+      "size": 27,
+      "bold": true,
+      "confidence": 0.96
+    },
+    {
+      "text": "MFG: JAN 2026    Best Before: JAN 2028",
+      "size": 21,
+      "confidence": 0.93
+    },
+    {
+      "text": "Manufactured by: Himveda Naturals Pvt. Ltd.",
+      "size": 21,
+      "confidence": 0.94
+    },
+    {
+      "text": "Khasra 221, Kotdwar, Uttarakhand 246149",
+      "size": 18,
+      "confidence": 0.9
+    },
+    {
+      "text": "Consumer Care: care@himveda.example | 1800-419-8800",
+      "size": 19,
+      "confidence": 0.92
+    },
+    {
+      "text": "EAN: 8907654321098",
+      "size": 19,
+      "confidence": 0.95
+    }
+  ],
+  "listing": {
+    "source": "DemoMart",
+    "url_or_id": "https://demomart.example/p/himveda-mustard-oil-1l",
+    "captured_at": "2026-09-05T16:42:00+00:00",
+    "fields": {
+      "product_name": "Himveda Cold Pressed Mustard Oil 1 L",
+      "brand": "Himveda",
+      "mrp": "₹199",
+      "net_quantity": "1 L",
+      "manufacturer_name": "Himveda Naturals Private Limited",
+      "consumer_care": "care@himveda.example, 1800-419-8800",
+      "identifier": "8907654321098"
+    },
+    "raw": {
+      "listing_id": "DM-91744",
+      "title": "Himveda Cold Pressed Mustard Oil 1 L",
+      "brand": "Himveda",
+      "price": {
+        "mrp": 199,
+        "selling_price": 179,
+        "currency": "INR"
+      },
+      "pack_size": "1 L",
+      "seller": {
+        "name": "ValueKart Online",
+        "rating": 3.8
+      },
+      "declarations": {
+        "manufacturer": "Himveda Naturals Private Limited",
+        "customer_care": "care@himveda.example, 1800-419-8800",
+        "ean": "8907654321098"
+      },
+      "note": "Listed MRP is lower than the printed retail sale price on the pack."
+    }
+  },
+  "official": {
+    "source": "e-Maap registry (demo snapshot)",
+    "url_or_id": "EMAAP/LM/2025/0091744",
+    "captured_at": "2026-08-30T08:15:00+00:00",
+    "fields": {
+      "product_name": "Mustard Oil (Kachi Ghani)",
+      "brand": "Himveda",
+      "mrp": "249.00",
+      "net_quantity": "1000 ml",
+      "manufacturer_name": "HIMVEDA NATURALS PVT LTD",
+      "identifier": "8907654321098"
+    },
+    "raw": {
+      "registration_no": "EMAAP/LM/2025/0091744",
+      "registered_entity": "HIMVEDA NATURALS PVT LTD",
+      "entity_type": "MANUFACTURER",
+      "commodity": "Mustard Oil (Kachi Ghani)",
+      "declared_net_quantity": {
+        "value": 1000,
+        "unit": "ml"
+      },
+      "declared_retail_sale_price": {
+        "amount": 249.0,
+        "currency": "INR"
+      },
+      "ean": "8907654321098",
+      "status": "ACTIVE"
+    }
+  },
+  "ocr_lines": [
+    {
+      "text": "HIMVEDA COLD PRESSED MUSTARD OIL",
+      "bbox": [
+        56.0,
+        74.0,
+        665.0,
+        22.0
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "Kachi Ghani | Filtered",
+      "bbox": [
+        56.0,
+        110.0,
+        213.0,
+        20.0
+      ],
+      "confidence": 0.94
+    },
+    {
+      "text": "Net Volume: 1 L",
+      "bbox": [
+        56.0,
+        147.0,
+        233.0,
+        20.0
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": "MRP Rs. 249.00 (incl. of all taxes)",
+      "bbox": [
+        56.0,
+        183.0,
+        514.0,
+        24.0
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "MFG: JAN 2026    Best Before: JAN 2028",
+      "bbox": [
+        56.0,
+        222.0,
+        414.0,
+        20.0
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "Manufactured by: Himveda Naturals Pvt. Ltd.",
+      "bbox": [
+        56.0,
+        258.0,
+        472.0,
+        20.0
+      ],
+      "confidence": 0.94
+    },
+    {
+      "text": "Khasra 221, Kotdwar, Uttarakhand 246149",
+      "bbox": [
+        56.0,
+        293.0,
+        385.0,
+        16.0
+      ],
+      "confidence": 0.9
+    },
+    {
+      "text": "Consumer Care: care@himveda.example | 1800-419-8800",
+      "bbox": [
+        56.0,
+        326.0,
+        555.0,
+        19.0
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "EAN: 8907654321098",
+      "bbox": [
+        56.0,
+        361.0,
+        209.0,
+        14.0
+      ],
+      "confidence": 0.95
+    }
+  ]
+}

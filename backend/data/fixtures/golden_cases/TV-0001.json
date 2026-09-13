@@ -1,0 +1,223 @@
+{
+  "case_id": "TV-0001",
+  "title": "Clean case — all three sources agree",
+  "expected_classification": "COMPLIANT",
+  "expected_notes": "Baseline. Proves the engine does not manufacture findings when everything genuinely agrees.",
+  "product": {
+    "product_id": "P-0001",
+    "name": "Sunrise Gold Chakki Atta",
+    "brand": "Sunrise",
+    "category": "Food grains and flour",
+    "identifier": "8901234567890"
+  },
+  "image": {
+    "file": "TV-0001-sunrise-atta.png",
+    "theme": "cream",
+    "title": "PACKAGED COMMODITY LABEL"
+  },
+  "label_lines": [
+    {
+      "text": "SUNRISE GOLD CHAKKI ATTA",
+      "size": 34,
+      "bold": true,
+      "confidence": 0.97
+    },
+    {
+      "text": "Whole Wheat Flour",
+      "size": 20,
+      "confidence": 0.95
+    },
+    {
+      "text": "Net Wt. 1 kg",
+      "size": 26,
+      "bold": true,
+      "confidence": 0.96
+    },
+    {
+      "text": "MRP Rs. 99.00 (incl. of all taxes)",
+      "size": 26,
+      "bold": true,
+      "confidence": 0.95
+    },
+    {
+      "text": "MFG: DEC 2025    Best Before: DEC 2026",
+      "size": 21,
+      "confidence": 0.93
+    },
+    {
+      "text": "Manufactured by: Sunrise Foods Pvt. Ltd.",
+      "size": 21,
+      "confidence": 0.94
+    },
+    {
+      "text": "Plot 14, MIDC Industrial Area, Pune 411019",
+      "size": 18,
+      "confidence": 0.9
+    },
+    {
+      "text": "Consumer Care: care@sunrisefoods.example | 1800-123-4567",
+      "size": 19,
+      "confidence": 0.92
+    },
+    {
+      "text": "EAN: 8901234567890",
+      "size": 19,
+      "confidence": 0.95
+    }
+  ],
+  "listing": {
+    "source": "DemoMart",
+    "url_or_id": "https://demomart.example/p/sunrise-gold-atta-1kg",
+    "captured_at": "2026-09-01T09:30:00+00:00",
+    "fields": {
+      "product_name": "Sunrise Gold Chakki Atta 1 kg",
+      "brand": "Sunrise",
+      "mrp": "₹99",
+      "net_quantity": "1 kg",
+      "manufacturer_name": "Sunrise Foods Private Limited",
+      "consumer_care": "care@sunrisefoods.example, 1800-123-4567",
+      "identifier": "8901234567890"
+    },
+    "raw": {
+      "listing_id": "DM-88213",
+      "title": "Sunrise Gold Chakki Atta 1 kg",
+      "brand": "Sunrise",
+      "price": {
+        "mrp": 99,
+        "selling_price": 92,
+        "currency": "INR"
+      },
+      "pack_size": "1 kg",
+      "seller": {
+        "name": "DemoMart Retail LLP",
+        "rating": 4.3
+      },
+      "declarations": {
+        "manufacturer": "Sunrise Foods Private Limited",
+        "customer_care": "care@sunrisefoods.example, 1800-123-4567",
+        "ean": "8901234567890"
+      }
+    }
+  },
+  "official": {
+    "source": "e-Maap registry (demo snapshot)",
+    "url_or_id": "EMAAP/LM/2025/0088213",
+    "captured_at": "2026-08-28T11:05:00+00:00",
+    "fields": {
+      "product_name": "Chakki Atta (Whole Wheat Flour)",
+      "brand": "Sunrise",
+      "mrp": "99.00",
+      "net_quantity": "1000 g",
+      "manufacturer_name": "SUNRISE FOODS PVT LTD",
+      "identifier": "8901234567890"
+    },
+    "raw": {
+      "registration_no": "EMAAP/LM/2025/0088213",
+      "registered_entity": "SUNRISE FOODS PVT LTD",
+      "entity_type": "MANUFACTURER",
+      "commodity": "Chakki Atta (Whole Wheat Flour)",
+      "declared_net_quantity": {
+        "value": 1000,
+        "unit": "g"
+      },
+      "declared_retail_sale_price": {
+        "amount": 99.0,
+        "currency": "INR"
+      },
+      "ean": "8901234567890",
+      "status": "ACTIVE"
+    }
+  },
+  "ocr_lines": [
+    {
+      "text": "SUNRISE GOLD CHAKKI ATTA",
+      "bbox": [
+        56.0,
+        75.0,
+        550.0,
+        25.0
+      ],
+      "confidence": 0.97
+    },
+    {
+      "text": "Whole Wheat Flour",
+      "bbox": [
+        56.0,
+        113.0,
+        191.0,
+        15.0
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": "Net Wt. 1 kg",
+      "bbox": [
+        56.0,
+        145.0,
+        184.0,
+        25.0
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "MRP Rs. 99.00 (incl. of all taxes)",
+      "bbox": [
+        56.0,
+        186.0,
+        477.0,
+        23.0
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": "MFG: DEC 2025    Best Before: DEC 2026",
+      "bbox": [
+        56.0,
+        224.0,
+        431.0,
+        16.0
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "Manufactured by: Sunrise Foods Pvt. Ltd.",
+      "bbox": [
+        56.0,
+        256.0,
+        430.0,
+        20.0
+      ],
+      "confidence": 0.94
+    },
+    {
+      "text": "Plot 14, MIDC Industrial Area, Pune 411019",
+      "bbox": [
+        56.0,
+        291.0,
+        389.0,
+        16.0
+      ],
+      "confidence": 0.9
+    },
+    {
+      "text": "Consumer Care: care@sunrisefoods.example | 1800-123-4567",
+      "bbox": [
+        56.0,
+        324.0,
+        593.0,
+        19.0
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "EAN: 8901234567890",
+      "bbox": [
+        56.0,
+        359.0,
+        209.0,
+        14.0
+      ],
+      "confidence": 0.95
+    }
+  ]
+}

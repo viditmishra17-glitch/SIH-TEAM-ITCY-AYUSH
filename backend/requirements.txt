@@ -1,0 +1,30 @@
+# Runtime dependencies (Build Manual section 14 — pin before the hackathon so
+# every machine and every deploy resolves identically).
+#
+# Verified end-to-end on CPython 3.11, 3.12, 3.13 and 3.14, on Linux and on
+# Windows (win_amd64). Every entry resolves to a binary wheel on all four, so
+# no compiler is ever needed.
+#
+# If you bump anything here, re-check wheel availability for the OLDEST and
+# NEWEST Python the team uses before committing:
+#
+#   pip download -r requirements.txt --only-binary=:all: \
+#       --python-version 3.14 --platform win_amd64 -d /tmp/wheelcheck
+#
+# (That command reports a false failure for uvloop: pip cannot evaluate the
+# `sys_platform != "win32"` marker in cross-platform download mode. Real
+# Windows installs skip uvloop correctly.)
+
+fastapi==0.141.1
+uvicorn[standard]==0.52.4
+pydantic==2.13.5
+python-multipart==0.0.32
+SQLAlchemy==2.0.52
+Pillow==12.3.0
+reportlab==5.0.1
+python-dotenv==1.2.3
+
+# PostgreSQL driver — needed only when DATABASE_URL points at Supabase or any
+# other Postgres. Local development and the offline demo run on SQLite and do
+# not touch it, which is why requirements-dev.txt leaves it out.
+psycopg[binary]==3.3.5

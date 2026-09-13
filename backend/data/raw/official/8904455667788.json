@@ -1,0 +1,30 @@
+{
+  "source": "e-Maap registry (demo snapshot)",
+  "url_or_id": "EMAAP/LM/2025/0070552",
+  "captured_at": "2026-08-26T07:45:00+00:00",
+  "fields": {
+    "product_name": "Dark Chocolate 70% Cocoa",
+    "brand": "Alpina",
+    "mrp": "349.00",
+    "net_quantity": "500 g",
+    "importer_name": "Meridian Global Traders LLP",
+    "identifier": "8904455667788"
+  },
+  "raw": {
+    "registration_no": "EMAAP/LM/2025/0070552",
+    "registered_entity": "MERIDIAN GLOBAL TRADERS LLP",
+    "entity_type": "IMPORTER",
+    "commodity": "Dark Chocolate 70% Cocoa",
+    "declared_net_quantity": {
+      "value": 500,
+      "unit": "g"
+    },
+    "declared_retail_sale_price": {
+      "amount": 349.0,
+      "currency": "INR"
+    },
+    "ean": "8904455667788",
+    "country_of_origin": "Switzerland",
+    "status": "ACTIVE"
+  }
+}

@@ -1,0 +1,226 @@
+{
+  "case_id": "TV-0003",
+  "title": "Product conflicts with the registered declaration",
+  "expected_classification": "COUNTERFEIT_OR_ILLEGAL_IMPORT",
+  "expected_notes": "Pack and listing both say 450 g and name a different importer; the official record says 500 g under another registered importer. The product as sold does not match the registry.",
+  "product": {
+    "product_id": "P-0003",
+    "name": "Alpina Swiss Dark Chocolate 70%",
+    "brand": "Alpina",
+    "category": "Imported confectionery",
+    "identifier": "8904455667788"
+  },
+  "image": {
+    "file": "TV-0003-alpina-chocolate.png",
+    "theme": "slate",
+    "title": "IMPORTED PACKAGED COMMODITY LABEL"
+  },
+  "label_lines": [
+    {
+      "text": "ALPINA SWISS DARK CHOCOLATE 70%",
+      "size": 29,
+      "bold": true,
+      "confidence": 0.96
+    },
+    {
+      "text": "Country of Origin: Switzerland",
+      "size": 20,
+      "confidence": 0.94
+    },
+    {
+      "text": "Net Wt. 450 g",
+      "size": 27,
+      "bold": true,
+      "confidence": 0.95
+    },
+    {
+      "text": "MRP Rs. 349.00 (incl. of all taxes)",
+      "size": 26,
+      "bold": true,
+      "confidence": 0.95
+    },
+    {
+      "text": "MFG: FEB 2026    Best Before: FEB 2027",
+      "size": 21,
+      "confidence": 0.92
+    },
+    {
+      "text": "Imported by: Greyline Imports LLP",
+      "size": 22,
+      "bold": true,
+      "confidence": 0.94
+    },
+    {
+      "text": "Unit 7, Cargo Complex, Navi Mumbai 400707",
+      "size": 18,
+      "confidence": 0.89
+    },
+    {
+      "text": "Consumer Care: help@greyline.example | 1800-222-3344",
+      "size": 19,
+      "confidence": 0.91
+    },
+    {
+      "text": "EAN: 8904455667788",
+      "size": 19,
+      "confidence": 0.94
+    }
+  ],
+  "listing": {
+    "source": "DemoMart",
+    "url_or_id": "https://demomart.example/p/alpina-swiss-dark-70-450g",
+    "captured_at": "2026-09-07T13:20:00+00:00",
+    "fields": {
+      "product_name": "Alpina Swiss Dark Chocolate 70% 450 g",
+      "brand": "Alpina",
+      "mrp": "₹349",
+      "net_quantity": "450 g",
+      "importer_name": "Greyline Imports LLP",
+      "consumer_care": "help@greyline.example, 1800-222-3344",
+      "identifier": "8904455667788"
+    },
+    "raw": {
+      "listing_id": "DM-70552",
+      "title": "Alpina Swiss Dark Chocolate 70% 450 g",
+      "brand": "Alpina",
+      "price": {
+        "mrp": 349,
+        "selling_price": 329,
+        "currency": "INR"
+      },
+      "pack_size": "450 g",
+      "seller": {
+        "name": "Continental Gourmet",
+        "rating": 4.1
+      },
+      "declarations": {
+        "importer": "Greyline Imports LLP",
+        "customer_care": "help@greyline.example, 1800-222-3344",
+        "ean": "8904455667788",
+        "country_of_origin": "Switzerland"
+      }
+    }
+  },
+  "official": {
+    "source": "e-Maap registry (demo snapshot)",
+    "url_or_id": "EMAAP/LM/2025/0070552",
+    "captured_at": "2026-08-26T07:45:00+00:00",
+    "fields": {
+      "product_name": "Dark Chocolate 70% Cocoa",
+      "brand": "Alpina",
+      "mrp": "349.00",
+      "net_quantity": "500 g",
+      "importer_name": "Meridian Global Traders LLP",
+      "identifier": "8904455667788"
+    },
+    "raw": {
+      "registration_no": "EMAAP/LM/2025/0070552",
+      "registered_entity": "MERIDIAN GLOBAL TRADERS LLP",
+      "entity_type": "IMPORTER",
+      "commodity": "Dark Chocolate 70% Cocoa",
+      "declared_net_quantity": {
+        "value": 500,
+        "unit": "g"
+      },
+      "declared_retail_sale_price": {
+        "amount": 349.0,
+        "currency": "INR"
+      },
+      "ean": "8904455667788",
+      "country_of_origin": "Switzerland",
+      "status": "ACTIVE"
+    }
+  },
+  "ocr_lines": [
+    {
+      "text": "ALPINA SWISS DARK CHOCOLATE 70%",
+      "bbox": [
+        56.0,
+        74.0,
+        619.0,
+        21.0
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "Country of Origin: Switzerland",
+      "bbox": [
+        56.0,
+        109.0,
+        302.0,
+        19.0
+      ],
+      "confidence": 0.94
+    },
+    {
+      "text": "Net Wt. 450 g",
+      "bbox": [
+        56.0,
+        146.0,
+        211.0,
+        26.0
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": "MRP Rs. 349.00 (incl. of all taxes)",
+      "bbox": [
+        56.0,
+        187.0,
+        495.0,
+        23.0
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": "MFG: FEB 2026    Best Before: FEB 2027",
+      "bbox": [
+        56.0,
+        225.0,
+        422.0,
+        16.0
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "Imported by: Greyline Imports LLP",
+      "bbox": [
+        56.0,
+        257.0,
+        428.0,
+        22.0
+      ],
+      "confidence": 0.94
+    },
+    {
+      "text": "Unit 7, Cargo Complex, Navi Mumbai 400707",
+      "bbox": [
+        56.0,
+        294.0,
+        407.0,
+        18.0
+      ],
+      "confidence": 0.89
+    },
+    {
+      "text": "Consumer Care: help@greyline.example | 1800-222-3344",
+      "bbox": [
+        56.0,
+        329.0,
+        549.0,
+        19.0
+      ],
+      "confidence": 0.91
+    },
+    {
+      "text": "EAN: 8904455667788",
+      "bbox": [
+        56.0,
+        364.0,
+        209.0,
+        14.0
+      ],
+      "confidence": 0.94
+    }
+  ]
+}

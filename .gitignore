@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local database and generated output
+backend/triverify.db
+*.db-journal
+backend/reports/*
+!backend/reports/.gitkeep
+backend/data/crops/*
+!backend/data/crops/.gitkeep
+backend/snapshots/
+
+# Secrets
+.env
+.env.local
+backend/.env
+frontend/.env
+frontend/.env.local
+
+# Node
+node_modules/
+npm-debug.log*
+
+# NOTE: frontend/dist IS committed on purpose — it lets the demo run from
+# FastAPI with no `npm install`. Remove this line if you would rather build
+# on deploy.
+
+# One-time migration helper and loose scratch output
+cleanup_old_layout.ps1
+Claude outputs/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

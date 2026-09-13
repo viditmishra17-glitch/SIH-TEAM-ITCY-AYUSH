@@ -1,0 +1,29 @@
+{
+  "source": "e-Maap registry (demo snapshot)",
+  "url_or_id": "EMAAP/LM/2025/0091744",
+  "captured_at": "2026-08-30T08:15:00+00:00",
+  "fields": {
+    "product_name": "Mustard Oil (Kachi Ghani)",
+    "brand": "Himveda",
+    "mrp": "249.00",
+    "net_quantity": "1000 ml",
+    "manufacturer_name": "HIMVEDA NATURALS PVT LTD",
+    "identifier": "8907654321098"
+  },
+  "raw": {
+    "registration_no": "EMAAP/LM/2025/0091744",
+    "registered_entity": "HIMVEDA NATURALS PVT LTD",
+    "entity_type": "MANUFACTURER",
+    "commodity": "Mustard Oil (Kachi Ghani)",
+    "declared_net_quantity": {
+      "value": 1000,
+      "unit": "ml"
+    },
+    "declared_retail_sale_price": {
+      "amount": 249.0,
+      "currency": "INR"
+    },
+    "ean": "8907654321098",
+    "status": "ACTIVE"
+  }
+}

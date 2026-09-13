@@ -1,0 +1,98 @@
+{
+  "engine": "fixture",
+  "case_id": "TV-0004",
+  "image_file": "TV-0004-verdant-honey.png",
+  "coordinate_space": "original",
+  "lines": [
+    {
+      "text": "VERDANT VALLEY ORGANIC FOREST HONEY",
+      "bbox": [
+        56.0,
+        74.0,
+        659.0,
+        20.0
+      ],
+      "confidence": 0.94
+    },
+    {
+      "text": "Raw | Unpasteurised",
+      "bbox": [
+        56.0,
+        108.0,
+        206.0,
+        20.0
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "Net Wt. 500 g",
+      "bbox": [
+        56.0,
+        146.0,
+        203.0,
+        24.0
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "MRP Rs. 4Z9.00 (incl. of all taxes)",
+      "bbox": [
+        56.0,
+        185.0,
+        476.0,
+        22.0
+      ],
+      "confidence": 0.41
+    },
+    {
+      "text": "MFG: MAR 2026    Best Before: MAR 2028",
+      "bbox": [
+        56.0,
+        222.0,
+        437.0,
+        16.0
+      ],
+      "confidence": 0.9
+    },
+    {
+      "text": "Packed by: Verdant Valley Farms LLP",
+      "bbox": [
+        56.0,
+        254.0,
+        381.0,
+        20.0
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "Village Sirmaur, Himachal Pradesh 173001",
+      "bbox": [
+        56.0,
+        289.0,
+        385.0,
+        18.0
+      ],
+      "confidence": 0.88
+    },
+    {
+      "text": "Consumer Care: hello@verdantvalley.example | 1800-808-9090",
+      "bbox": [
+        56.0,
+        324.0,
+        605.0,
+        19.0
+      ],
+      "confidence": 0.9
+    },
+    {
+      "text": "EAN: 8909988776655",
+      "bbox": [
+        56.0,
+        359.0,
+        209.0,
+        14.0
+      ],
+      "confidence": 0.93
+    }
+  ]
+}

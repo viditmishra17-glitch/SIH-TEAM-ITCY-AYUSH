@@ -1,0 +1,98 @@
+{
+  "engine": "fixture",
+  "case_id": "TV-0001",
+  "image_file": "TV-0001-sunrise-atta.png",
+  "coordinate_space": "original",
+  "lines": [
+    {
+      "text": "SUNRISE GOLD CHAKKI ATTA",
+      "bbox": [
+        56.0,
+        75.0,
+        550.0,
+        25.0
+      ],
+      "confidence": 0.97
+    },
+    {
+      "text": "Whole Wheat Flour",
+      "bbox": [
+        56.0,
+        113.0,
+        191.0,
+        15.0
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": "Net Wt. 1 kg",
+      "bbox": [
+        56.0,
+        145.0,
+        184.0,
+        25.0
+      ],
+      "confidence": 0.96
+    },
+    {
+      "text": "MRP Rs. 99.00 (incl. of all taxes)",
+      "bbox": [
+        56.0,
+        186.0,
+        477.0,
+        23.0
+      ],
+      "confidence": 0.95
+    },
+    {
+      "text": "MFG: DEC 2025    Best Before: DEC 2026",
+      "bbox": [
+        56.0,
+        224.0,
+        431.0,
+        16.0
+      ],
+      "confidence": 0.93
+    },
+    {
+      "text": "Manufactured by: Sunrise Foods Pvt. Ltd.",
+      "bbox": [
+        56.0,
+        256.0,
+        430.0,
+        20.0
+      ],
+      "confidence": 0.94
+    },
+    {
+      "text": "Plot 14, MIDC Industrial Area, Pune 411019",
+      "bbox": [
+        56.0,
+        291.0,
+        389.0,
+        16.0
+      ],
+      "confidence": 0.9
+    },
+    {
+      "text": "Consumer Care: care@sunrisefoods.example | 1800-123-4567",
+      "bbox": [
+        56.0,
+        324.0,
+        593.0,
+        19.0
+      ],
+      "confidence": 0.92
+    },
+    {
+      "text": "EAN: 8901234567890",
+      "bbox": [
+        56.0,
+        359.0,
+        209.0,
+        14.0
+      ],
+      "confidence": 0.95
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "source": "DemoMart",
+  "url_or_id": "https://demomart.example/p/alpina-swiss-dark-70-450g",
+  "captured_at": "2026-09-07T13:20:00+00:00",
+  "fields": {
+    "product_name": "Alpina Swiss Dark Chocolate 70% 450 g",
+    "brand": "Alpina",
+    "mrp": "₹349",
+    "net_quantity": "450 g",
+    "importer_name": "Greyline Imports LLP",
+    "consumer_care": "help@greyline.example, 1800-222-3344",
+    "identifier": "8904455667788"
+  },
+  "raw": {
+    "listing_id": "DM-70552",
+    "title": "Alpina Swiss Dark Chocolate 70% 450 g",
+    "brand": "Alpina",
+    "price": {
+      "mrp": 349,
+      "selling_price": 329,
+      "currency": "INR"
+    },
+    "pack_size": "450 g",
+    "seller": {
+      "name": "Continental Gourmet",
+      "rating": 4.1
+    },
+    "declarations": {
+      "importer": "Greyline Imports LLP",
+      "customer_care": "help@greyline.example, 1800-222-3344",
+      "ean": "8904455667788",
+      "country_of_origin": "Switzerland"
+    }
+  }
+}

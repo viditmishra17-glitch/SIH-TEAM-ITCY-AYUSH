@@ -1,0 +1,60 @@
+# NOTE: shipped as "Makefile.txt" because the file-transfer bridge treats the
+# name "Makefile" as protected. Rename it to "Makefile" (no extension) to use it:
+#     Windows PowerShell, from the repository root:  Rename-Item Makefile.txt Makefile
+#     macOS / Linux, from the repository root:       mv Makefile.txt Makefile
+# It is optional — README.md lists the plain command for every target.
+
+# TriVerify — developer commands (Build Manual section 14).
+# Run every target from the REPOSITORY ROOT (the folder holding backend/ and
+# frontend/). Each target changes directory for you.
+#
+# Windows users without `make`: README.md lists the equivalent PowerShell
+# command, and the directory to run it from, for every target.
+
+PY  ?= python
+NPM ?= npm
+
+.DEFAULT_GOAL := help
+.PHONY: help setup seed test serve web build demo snapshot fixtures schema clean reset
+
+help: ## Show this help
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
+	 awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-12s\033[0m %s\n", $$1, $$2}'
+
+setup: ## Install Python and Node dependencies
+	$(PY) -m pip install -r backend/requirements-dev.txt
+	cd frontend && $(NPM) install
+
+seed: ## Load the four deterministic golden cases
+	cd backend && $(PY) -m app.seed
+
+test: ## Run unit, rule, API, golden-case and offline tests
+	cd backend && $(PY) -m pytest
+
+serve: ## Start the API (also serves frontend/dist at http://127.0.0.1:8000)
+	cd backend && $(PY) -m uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
+
+web: ## Start the Vite dev server (expects `make serve` in another terminal)
+	cd frontend && $(NPM) run dev
+
+build: ## Build the React bundle into frontend/dist
+	cd frontend && $(NPM) run build
+
+demo: seed serve ## Seed, then start the full demo on one port
+
+fixtures: ## Regenerate demo images, OCR fixtures and cached snapshots
+	cd backend && $(PY) scripts/make_demo_data.py
+
+schema: ## Regenerate backend/app/models/schema.sql from the models
+	cd backend && $(PY) scripts/dump_schema.py
+
+snapshot: ## Create a recoverable snapshot of the demo database
+	cd backend && $(PY) scripts/snapshot.py
+
+reset: ## Delete the local database and reseed from scratch
+	-$(PY) -c "import pathlib; pathlib.Path('backend/triverify.db').unlink(missing_ok=True)"
+	cd backend && $(PY) -m app.seed
+
+clean: ## Remove caches and generated artefacts
+	-$(PY) -c "import shutil,pathlib; [shutil.rmtree(p, ignore_errors=True) for p in pathlib.Path('.').rglob('__pycache__')]"
+	-$(PY) -c "import shutil; shutil.rmtree('backend/.pytest_cache', ignore_errors=True)"
