@@ -3,6 +3,7 @@
    not the chrome. Status is never communicated by colour alone. */
 
 :root {
+  color-scheme: light;
   --bg: #f4f6f9;
   --panel: #ffffff;
   --panel-2: #fafbfc;
