@@ -66,9 +66,19 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=config.CORS_ORIGINS,
+    allow_origin_regex=config.CORS_ORIGIN_REGEX,
     allow_credentials=False,
     allow_methods=["GET", "POST", "OPTIONS"],
     allow_headers=["*"],
+)
+
+# A browser reports a CORS rejection only to its own console, so a deployment
+# with the wrong origin list looks, from the server side, like no traffic at
+# all. Say on startup what will be accepted.
+logging.getLogger("triverify").info(
+    "CORS: origins=%s regex=%s",
+    config.CORS_ORIGINS or "(none)",
+    config.CORS_ORIGIN_REGEX or "(none)",
 )
 
 app.include_router(cases.router)

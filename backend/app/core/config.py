@@ -131,13 +131,52 @@ FORCE_FIXTURE_OCR = _flag("TRIVERIFY_FORCE_FIXTURE_OCR", False)
 APP_NAME = "TriVerify"
 APP_VERSION = "1.0.0"
 
+def _normalize_origin(value: str) -> str:
+    """Reduce a configured origin to the form a browser actually sends.
+
+    An ``Origin`` header is scheme + host + optional port, never a path and
+    never a trailing slash, and CORSMiddleware compares it as an exact string.
+    So ``https://app.vercel.app/`` pasted into a hosting dashboard silently
+    matches nothing at all. Normalising here means the configuration is
+    forgiving about a detail nobody should have to get right by hand.
+    """
+    origin = value.strip()
+
+    if origin in ("", "*"):
+        return origin
+
+    origin = origin.rstrip("/")
+
+    if "://" in origin:
+        scheme, _, rest = origin.partition("://")
+        return f"{scheme.lower()}://{rest.split('/', 1)[0]}"
+
+    return f"https://{origin.split('/', 1)[0]}"
+
+
 #: Comma-separated list of allowed browser origins. "*" during the hackathon;
 #: set this to the Vercel domain in production.
 CORS_ORIGINS = [
-    origin.strip()
-    for origin in os.environ.get("TRIVERIFY_CORS_ORIGINS", "*").split(",")
-    if origin.strip()
+    normalized
+    for normalized in (
+        _normalize_origin(origin)
+        for origin in os.environ.get("TRIVERIFY_CORS_ORIGINS", "*").split(",")
+    )
+    if normalized
 ]
+
+#: Matched in ADDITION to the list above. Vercel mints a new hostname for every
+#: preview deployment (``app-git-branch-user.vercel.app``), so an exact-match
+#: list goes stale on the next push and the frontend silently loses its API
+#: again. Set TRIVERIFY_CORS_ORIGIN_REGEX to override, or to an empty string to
+#: turn it off. Starlette requires a FULL match against the origin.
+CORS_ORIGIN_REGEX = (
+    os.environ.get(
+        "TRIVERIFY_CORS_ORIGIN_REGEX",
+        r"https://[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*\.vercel\.app",
+    ).strip()
+    or None
+)
 
 MAX_UPLOAD_BYTES = int(os.environ.get("TRIVERIFY_MAX_UPLOAD_BYTES", 12 * 1024 * 1024))
 
