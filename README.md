@@ -1,8 +1,8 @@
-# TriVerify
+# PARAKH
 
 **Three-layer Legal Metrology compliance scanner** — SIH 2026, problem statement SIH26034.
 
-TriVerify takes a photograph of a packaged commodity, extracts the legally
+PARAKH takes a photograph of a packaged commodity, extracts the legally
 required declarations, and reconciles them against **two independent surfaces**:
 the seller's e-commerce listing and the registered official declaration. It then
 produces a traceable classification with the exact mismatches and the visual
@@ -19,7 +19,7 @@ and every finding points at a source field and an image crop.
 
 ## What it looks like
 
-![TriVerify case view — three-layer comparison](docs/screenshots/case-view.png)
+![PARAKH case view — three-layer comparison](docs/screenshots/case-view.png)
 
 *Case TV-0002. The physical label and the official record both say Rs. 249; the
 seller's listing says Rs. 199. One mismatch, one story, and the deterministic
@@ -406,7 +406,7 @@ shell, **from `/opt/render/project/src/backend`**:
 python -m app.seed
 ```
 
-> **Note on Render's filesystem.** It is ephemeral, so TriVerify stores image
+> **Note on Render's filesystem.** It is ephemeral, so PARAKH stores image
 > bytes in the database and generates evidence crops on demand rather than
 > writing them to disk. Nothing breaks on restart.
 

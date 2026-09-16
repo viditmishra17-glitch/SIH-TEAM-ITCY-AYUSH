@@ -4,16 +4,21 @@ import IntakePage from './pages/IntakePage.jsx'
 import CasePage from './pages/CasePage.jsx'
 import HistoryPage from './pages/HistoryPage.jsx'
 
-/**
- * Hash routing on purpose: it needs no server rewrite rules, so the exact same
- * bundle works when served by FastAPI and when deployed as a static site on
- * Vercel. One less thing to configure, one less thing to break on demo day.
- */
 function currentRoute() {
   const hash = window.location.hash.replace(/^#/, '') || '/'
   const parts = hash.split('/').filter(Boolean)
-  if (parts[0] === 'case' && parts[1]) return { name: 'case', caseId: decodeURIComponent(parts[1]) }
-  if (parts[0] === 'history') return { name: 'history' }
+
+  if (parts[0] === 'case' && parts[1]) {
+    return {
+      name: 'case',
+      caseId: decodeURIComponent(parts[1]),
+    }
+  }
+
+  if (parts[0] === 'history') {
+    return { name: 'history' }
+  }
+
   return { name: 'intake' }
 }
 
@@ -23,8 +28,12 @@ export default function App() {
 
   useEffect(() => {
     const onHashChange = () => setRoute(currentRoute())
+
     window.addEventListener('hashchange', onHashChange)
-    return () => window.removeEventListener('hashchange', onHashChange)
+
+    return () => {
+      window.removeEventListener('hashchange', onHashChange)
+    }
   }, [])
 
   useEffect(() => {
@@ -37,49 +46,75 @@ export default function App() {
     window.location.hash = path
   }, [])
 
-  const healthy = health && health.status === 'ok'
+  const healthy = health?.status === 'ok'
 
   return (
     <div className="app">
       <header className="topbar">
         <div className="brand">
-          <b>TriVerify</b>
-          <span>Legal Metrology compliance console</span>
+          <b>PARAKH</b>
+          <span>Legal Metrology Compliance Console</span>
         </div>
 
         <nav className="nav" aria-label="Main">
           <button
             type="button"
             onClick={() => navigate('/')}
-            aria-current={route.name === 'intake' ? 'page' : undefined}
+            aria-current={
+              route.name === 'intake' ? 'page' : undefined
+            }
           >
             New case
           </button>
+
           <button
             type="button"
             onClick={() => navigate('/history')}
-            aria-current={route.name === 'history' ? 'page' : undefined}
+            aria-current={
+              route.name === 'history' ? 'page' : undefined
+            }
           >
             History
           </button>
 
-          <div className="health" title={health ? JSON.stringify(health) : 'checking…'}>
-            <span className={`dot${healthy ? '' : ' off'}`} aria-hidden="true" />
-            {health
-              ? healthy
-                ? `${health.golden_cases} seeded · ${
-                    health.offline_ready ? 'offline ready' : 'network mode'
-                  }`
-                : 'API unreachable'
-              : 'checking…'}
+          <div
+            className="health"
+            title={
+              health
+                ? healthy
+                  ? 'PARAKH verification service is available'
+                  : 'PARAKH API could not be reached'
+                : 'Checking verification service'
+            }
+          >
+            <span
+              className={`dot${healthy ? '' : ' off'}`}
+              aria-hidden="true"
+            />
+
+            <span>
+              {health
+                ? healthy
+                  ? 'Verification Ready'
+                  : 'Connection issue'
+                : 'Checking…'}
+            </span>
           </div>
         </nav>
       </header>
 
       <main className="main">
-        {route.name === 'intake' ? <IntakePage navigate={navigate} /> : null}
-        {route.name === 'history' ? <HistoryPage navigate={navigate} /> : null}
-        {route.name === 'case' ? <CasePage caseId={route.caseId} /> : null}
+        {route.name === 'intake' ? (
+          <IntakePage navigate={navigate} />
+        ) : null}
+
+        {route.name === 'history' ? (
+          <HistoryPage navigate={navigate} />
+        ) : null}
+
+        {route.name === 'case' ? (
+          <CasePage caseId={route.caseId} />
+        ) : null}
       </main>
     </div>
   )
