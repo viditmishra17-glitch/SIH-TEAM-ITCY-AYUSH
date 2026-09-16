@@ -1782,3 +1782,76 @@ pre.raw {
   }
 }
 
+
+/* ------------------------------------------------- backend connection banner */
+/* Only rendered when the health check fails. Deliberately loud: a deployed
+   frontend that cannot reach its API is otherwise silent. */
+
+.conn-banner {
+  margin: 0 auto;
+  padding: 14px 20px 16px;
+  max-width: 1200px;
+  width: 100%;
+  border-bottom: 1px solid var(--line);
+  background: var(--warn-bg);
+  color: var(--warn);
+  font-size: 0.9rem;
+}
+
+.conn-head {
+  line-height: 1.5;
+}
+
+.conn-head code {
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.06);
+  font-family: var(--mono);
+  font-size: 0.85em;
+  word-break: break-all;
+}
+
+.conn-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.conn-form label {
+  font-weight: 600;
+}
+
+.conn-form input {
+  flex: 1 1 280px;
+  min-width: 0;
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 0.85rem;
+}
+
+.conn-form button {
+  padding: 7px 16px;
+  border: 0;
+  border-radius: var(--radius);
+  background: var(--brand);
+  color: var(--brand-ink);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.conn-form button:hover {
+  filter: brightness(1.1);
+}
+
+.conn-hint {
+  margin: 8px 0 0;
+  color: var(--ink-2);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}

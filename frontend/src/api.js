@@ -1,38 +1,135 @@
 // Thin API client. Every call goes through here so the base URL is set once.
 //
-// Resolution order:
-//   1. ?api=https://host     one-off override, remembered for this tab
-//   2. window.__PARAKH_API_BASE__
-//   3. VITE_API_BASE_URL     inlined by Vite at BUILD time
-//   4. ''                    same origin (FastAPI serving the bundle)
+// Resolution order, first non-empty wins:
+//   1. ?api=https://host              one-off override, then remembered
+//   2. saved override                 localStorage, set from the UI or by (1)
+//   3. window.__PARAKH_API_BASE__     public/config.js - editable after build
+//   4. VITE_API_BASE_URL              inlined by Vite at BUILD time
+//   5. ''                             same origin (FastAPI serving the bundle)
 //
-// Step 3 is the usual production path and the usual production mistake: Vite
-// inlines VITE_* when the bundle is compiled, so setting it in a hosting
-// dashboard AFTER a deploy changes nothing until you rebuild. When that
-// happens every call silently goes to the static host instead of the API, so
-// request() below detects it and says so rather than reporting a bare 404.
+// Step 4 is the usual production mistake: Vite inlines VITE_* when the bundle
+// is COMPILED, so setting it in a hosting dashboard after a deploy changes
+// nothing until you rebuild. Steps 1-3 exist so the app can be repointed
+// without a rebuild, and request() below names the problem instead of
+// reporting a bare 404.
 
-function readRuntimeBase() {
-  if (typeof window === 'undefined') return ''
-  try {
-    const fromQuery = new URLSearchParams(window.location.search).get('api')
-    if (fromQuery !== null) {
-      const trimmed = fromQuery.trim()
-      if (trimmed) window.sessionStorage.setItem('parakh.apiBase', trimmed)
-      else window.sessionStorage.removeItem('parakh.apiBase')
-      return trimmed
-    }
-    const stored = window.sessionStorage.getItem('parakh.apiBase')
-    if (stored) return stored
-    if (window.__PARAKH_API_BASE__) return String(window.__PARAKH_API_BASE__)
-  } catch {
-    // Private browsing or storage disabled - fall back to the build-time value.
-  }
-  return ''
+const STORAGE_KEY = 'parakh.apiBase'
+
+// The app uses hash routing, so a pasted "?api=" usually lands INSIDE the hash
+// (".../#/?api=https://host"), where location.search is empty. Read both.
+function readParam(name) {
+  const fromSearch = new URLSearchParams(window.location.search).get(name)
+  if (fromSearch !== null) return fromSearch
+
+  const hash = window.location.hash || ''
+  const mark = hash.indexOf('?')
+  if (mark === -1) return null
+
+  return new URLSearchParams(hash.slice(mark + 1)).get(name)
 }
 
-const RAW_BASE = readRuntimeBase() || import.meta.env.VITE_API_BASE_URL || ''
-export const API_BASE = RAW_BASE.replace(/\/+$/, '')
+// localStorage first so the override survives a reload, sessionStorage as a
+// fallback, and neither is fatal: private browsing makes both throw.
+function storage() {
+  for (const name of ['localStorage', 'sessionStorage']) {
+    try {
+      const store = window[name]
+      const probe = '__parakh_probe__'
+      store.setItem(probe, '1')
+      store.removeItem(probe)
+      return store
+    } catch {
+      // Try the next one.
+    }
+  }
+  return null
+}
+
+// Accept "host.onrender.com" as well as a full URL, and drop trailing slashes
+// so apiUrl() never produces a double slash. A scheme-less address gets https,
+// except on the loopback host, which is never served over TLS in development.
+const LOOPBACK = /^(localhost|127\.0\.0\.1|\[::1\])(:\d+)?$/i
+
+export function normalizeBase(value) {
+  const trimmed = String(value ?? '').trim()
+  if (!trimmed) return ''
+
+  if (/^https?:\/\//i.test(trimmed)) return trimmed.replace(/\/+$/, '')
+
+  const bare = trimmed.replace(/^\/+/, '')
+  const host = bare.split('/')[0]
+  const scheme = LOOPBACK.test(host) ? 'http' : 'https'
+
+  return `${scheme}://${bare}`.replace(/\/+$/, '')
+}
+
+function resolveBase() {
+  if (typeof window === 'undefined') {
+    return { base: '', source: 'server' }
+  }
+
+  const store = storage()
+
+  const fromQuery = readParam('api')
+  if (fromQuery !== null) {
+    const normalized = normalizeBase(fromQuery)
+    try {
+      if (normalized) store?.setItem(STORAGE_KEY, normalized)
+      else store?.removeItem(STORAGE_KEY)
+    } catch {
+      // Not being able to remember it does not stop this page load using it.
+    }
+    if (normalized) return { base: normalized, source: 'query' }
+  }
+
+  try {
+    const saved = normalizeBase(store?.getItem(STORAGE_KEY))
+    if (saved) return { base: saved, source: 'saved' }
+  } catch {
+    // Ignore and fall through.
+  }
+
+  const fromConfig = normalizeBase(window.__PARAKH_API_BASE__)
+  if (fromConfig) return { base: fromConfig, source: 'config.js' }
+
+  const fromBuild = normalizeBase(import.meta.env.VITE_API_BASE_URL)
+  if (fromBuild) return { base: fromBuild, source: 'build' }
+
+  return { base: '', source: 'same-origin' }
+}
+
+const resolved = resolveBase()
+
+export const API_BASE = resolved.base
+
+// Where the address came from. Shown in the UI so a misconfigured deploy is
+// diagnosable without opening DevTools.
+export const API_BASE_SOURCE = resolved.source
+
+// Save a backend address and reload, since API_BASE is read once at startup.
+export function setApiBase(value) {
+  const normalized = normalizeBase(value)
+  const store = storage()
+
+  try {
+    if (normalized) store?.setItem(STORAGE_KEY, normalized)
+    else store?.removeItem(STORAGE_KEY)
+  } catch {
+    // Fall through to the reload; the query-string path still works.
+  }
+
+  // Strip any ?api= from the URL so the saved value is what takes effect.
+  const clean = window.location.href
+    .replace(/([?&])api=[^&#]*/g, '$1')
+    .replace(/[?&]$/, '')
+
+  window.location.replace(clean)
+  window.location.reload()
+}
+
+export function clearApiBase() {
+  setApiBase('')
+}
 
 export function apiUrl(path) {
   if (!path) return API_BASE || '/'
@@ -122,9 +219,9 @@ async function request(path, options = {}) {
       throw new ApiError(
         'No API base URL is configured in this build.',
         0,
-        'PARAKH has no backend address configured, so requests are going to this ' +
-          'site itself. Set VITE_API_BASE_URL to the backend URL and redeploy - ' +
-          'or add ?api=https://your-backend-url to this page to test right now.',
+        'PARAKH has no backend address configured, so requests are going to ' +
+          'this site itself instead of the API. Enter the backend URL in the ' +
+          'banner at the top of the page to fix it now.',
       )
     }
 

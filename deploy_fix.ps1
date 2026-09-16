@@ -1,17 +1,21 @@
 # ---------------------------------------------------------------------------
-# Rebuild the frontend bundle and push it, so Render stops serving a stale UI.
+# Rebuild the frontend bundle, sanity-check the backend address, and push.
 #
 # Render serves frontend/dist straight from the repository, so the bundle has
-# to be COMMITTED — building locally is not enough.
+# to be COMMITTED - building locally is not enough.
 #
 # Run from the repository root:
 #     powershell -ExecutionPolicy Bypass -File deploy_fix.ps1
+#
+# Set the backend address at the same time (writes frontend/public/config.js):
+#     powershell -ExecutionPolicy Bypass -File deploy_fix.ps1 -ApiBase "https://your-service.onrender.com"
 #
 # Build and check, but do not commit or push:
 #     powershell -ExecutionPolicy Bypass -File deploy_fix.ps1 -NoPush
 # ---------------------------------------------------------------------------
 
 param(
+    [string]$ApiBase,
     [switch]$NoPush,
     [string]$Message = "Rebuild frontend bundle"
 )
@@ -41,7 +45,41 @@ if ($markers) {
 }
 Good "  none found."
 
-# --- 2. Build ---------------------------------------------------------------
+# --- 2. Backend address -----------------------------------------------------
+$configPath = "frontend\public\config.js"
+
+if ($PSBoundParameters.ContainsKey("ApiBase")) {
+    $clean = $ApiBase.Trim().TrimEnd("/")
+    if ($clean -and $clean -notmatch '^https?://') { $clean = "https://$clean" }
+
+    @"
+/* PARAKH runtime configuration - copied into dist/ verbatim, NOT bundled.
+   Change this line to repoint the API; no rebuild of the JS is required.
+   Leave it as "" when FastAPI serves this bundle itself (same origin). */
+
+window.__PARAKH_API_BASE__ = "$clean";
+"@ | Set-Content -Path $configPath -Encoding UTF8 -NoNewline
+
+    Good "  wrote $configPath -> `"$clean`""
+}
+elseif (Test-Path $configPath) {
+    $current = (Get-Content $configPath -Raw)
+    if ($current -match '__PARAKH_API_BASE__\s*=\s*"([^"]*)"') {
+        $set = $Matches[1]
+        if ($set) { Good "  config.js points at $set" }
+        else {
+            Warn "  config.js is empty, so the app will call its OWN origin."
+            Warn "  That is correct for Render (FastAPI serves the bundle)."
+            Warn "  It is WRONG for Vercel, where there is no backend on that origin."
+            Warn "  Fix with:  .\deploy_fix.ps1 -ApiBase `"https://your-service.onrender.com`""
+        }
+    }
+}
+else {
+    Warn "  $configPath is missing - the runtime override will not be available."
+}
+
+# --- 3. Build ---------------------------------------------------------------
 Push-Location frontend
 try {
     if (-not (Test-Path "node_modules")) {
@@ -64,18 +102,25 @@ $asset = Get-ChildItem "frontend\dist\assets" -Filter "*.js" -ErrorAction Silent
 if (-not $asset) { Bad "No bundle in frontend\dist\assets after the build."; exit 1 }
 Good ("  built {0} ({1:N0} bytes)" -f $asset.Name, $asset.Length)
 
+if (-not (Test-Path "frontend\dist\config.js")) {
+    Bad "frontend\dist\config.js is missing after the build."
+    Bad "Check that frontend\public\config.js exists - Vite copies public/ into dist/."
+    exit 1
+}
+Good "  dist\config.js present."
+
 if ($NoPush) {
     Info ""
     Info "-NoPush set: built only, nothing committed."
     exit 0
 }
 
-# --- 3. Commit and push -----------------------------------------------------
+# --- 4. Commit and push -----------------------------------------------------
 $changed = git status --porcelain
 if (-not $changed) {
     Warn ""
     Warn "Nothing changed - the committed bundle already matches this build."
-    Warn "If Render is still showing an old UI, it is browser cache: Ctrl+Shift+R."
+    Warn "If a deployed site still looks stale, it is browser cache: Ctrl+Shift+R."
     exit 0
 }
 
@@ -95,13 +140,9 @@ if ($LASTEXITCODE -ne 0) {
 }
 
 Good ""
-Good "Pushed. Render auto-deploys - give it a couple of minutes, then hard-refresh (Ctrl+Shift+R)."
+Good "Pushed. Render and Vercel both auto-deploy - give them a couple of minutes,"
+Good "then hard-refresh (Ctrl+Shift+R)."
 Write-Host ""
-Write-Host "Still to do on Vercel (dashboard only, I cannot do it from here):" -ForegroundColor Cyan
-Write-Host "  1. Settings -> Environment Variables"
-Write-Host "  2. VITE_API_BASE_URL = https://<your-service>.onrender.com   (no trailing slash, scope Production)"
-Write-Host "  3. Deployments -> ... -> Redeploy       <- required; env vars only apply to NEW builds"
-Write-Host ""
-Write-Host "To confirm the backend URL is baked in, after redeploying:" -ForegroundColor Cyan
-Write-Host "  open the Vercel site, DevTools -> Network, reload, and check that"
-Write-Host "  the /health request goes to onrender.com and not to vercel.app."
+Write-Host "If the deployed page shows an orange 'Backend unreachable' bar, type the" -ForegroundColor Cyan
+Write-Host "backend URL into it and press Connect. That works immediately, with no"  -ForegroundColor Cyan
+Write-Host "rebuild, and tells you whether the address or CORS is the problem."      -ForegroundColor Cyan

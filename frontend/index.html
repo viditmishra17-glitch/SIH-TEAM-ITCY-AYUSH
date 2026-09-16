@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="light dark" />
     <title>PARAKH — Legal Metrology Compliance Console</title>
+    <!-- Runtime config, deliberately NOT bundled: edit dist/config.js to
+         repoint the API without rebuilding. Classic script in <head> so it
+         runs before the deferred module below. -->
+    <script src="./config.js"></script>
   </head>
   <body>
     <div id="root"></div>

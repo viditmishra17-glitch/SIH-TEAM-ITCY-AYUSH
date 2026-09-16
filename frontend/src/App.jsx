@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
-import { getHealth } from './api.js'
+import { API_BASE, getHealth } from './api.js'
+import ConnectionBanner from './ConnectionBanner.jsx'
 import IntakePage from './pages/IntakePage.jsx'
 import CasePage from './pages/CasePage.jsx'
 import HistoryPage from './pages/HistoryPage.jsx'
@@ -82,8 +83,8 @@ export default function App() {
             title={
               health
                 ? healthy
-                  ? 'PARAKH verification service is available'
-                  : 'PARAKH API could not be reached'
+                  ? `Verification service available at ${API_BASE || 'this origin'}`
+                  : `Could not reach ${API_BASE || 'this origin'}`
                 : 'Checking verification service'
             }
           >
@@ -102,6 +103,8 @@ export default function App() {
           </div>
         </nav>
       </header>
+
+      {health && !healthy ? <ConnectionBanner /> : null}
 
       <main className="main">
         {route.name === 'intake' ? (
