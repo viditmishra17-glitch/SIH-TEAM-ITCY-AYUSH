@@ -1,8 +1,37 @@
-// Thin API client. Every call goes through here so the base URL is set once:
-// empty (same origin) when FastAPI serves the bundle, or the Render URL when
-// the frontend is deployed separately on Vercel.
+// Thin API client. Every call goes through here so the base URL is set once.
+//
+// Resolution order:
+//   1. ?api=https://host     one-off override, remembered for this tab
+//   2. window.__PARAKH_API_BASE__
+//   3. VITE_API_BASE_URL     inlined by Vite at BUILD time
+//   4. ''                    same origin (FastAPI serving the bundle)
+//
+// Step 3 is the usual production path and the usual production mistake: Vite
+// inlines VITE_* when the bundle is compiled, so setting it in a hosting
+// dashboard AFTER a deploy changes nothing until you rebuild. When that
+// happens every call silently goes to the static host instead of the API, so
+// request() below detects it and says so rather than reporting a bare 404.
 
-const RAW_BASE = import.meta.env.VITE_API_BASE_URL || ''
+function readRuntimeBase() {
+  if (typeof window === 'undefined') return ''
+  try {
+    const fromQuery = new URLSearchParams(window.location.search).get('api')
+    if (fromQuery !== null) {
+      const trimmed = fromQuery.trim()
+      if (trimmed) window.sessionStorage.setItem('parakh.apiBase', trimmed)
+      else window.sessionStorage.removeItem('parakh.apiBase')
+      return trimmed
+    }
+    const stored = window.sessionStorage.getItem('parakh.apiBase')
+    if (stored) return stored
+    if (window.__PARAKH_API_BASE__) return String(window.__PARAKH_API_BASE__)
+  } catch {
+    // Private browsing or storage disabled - fall back to the build-time value.
+  }
+  return ''
+}
+
+const RAW_BASE = readRuntimeBase() || import.meta.env.VITE_API_BASE_URL || ''
 export const API_BASE = RAW_BASE.replace(/\/+$/, '')
 
 export function apiUrl(path) {
@@ -85,6 +114,20 @@ async function request(path, options = {}) {
     : null
 
   if (!response.ok) {
+    // A 404 that is NOT JSON means we hit a static host with no API behind it:
+    // the bundle was built without an API address, so calls went to this
+    // site's own origin. FastAPI always answers with JSON, so this cannot
+    // misfire when the backend really is serving the page.
+    if (response.status === 404 && !isJson && !API_BASE) {
+      throw new ApiError(
+        'No API base URL is configured in this build.',
+        0,
+        'PARAKH has no backend address configured, so requests are going to this ' +
+          'site itself. Set VITE_API_BASE_URL to the backend URL and redeploy - ' +
+          'or add ?api=https://your-backend-url to this page to test right now.',
+      )
+    }
+
     const detail =
       payload && (payload.detail || payload.message)
 
